@@ -11,14 +11,14 @@
   - 马斯克称"Impressive work"
   - OpenAI o1主要发明者Jerry Tworek称其为"深度学习2.0"开端
   - 前OpenAI联创Andrej Karpathy表示"看来我们还没把Attention is All You Need理解透"
-- **链接**：https://www.huxiu.com/article/4843241.html
+- **链接**：[查看原文](https://www.huxiu.com/article/4843241.html)
 
 ---
 
 **阿里成立Token事业群，吴泳铭亲自带队**
 
 - **内容**：阿里围绕Token成立新事业群，CEO吴泳铭亲自负责
-- **链接**：https://www.huxiu.com/article/4842495.html
+- **链接**：[查看原文](https://www.huxiu.com/article/4842495.html)
 
 ---
 
@@ -26,7 +26,7 @@
 
 - **来源**：虎嗅
 - **内容**：具身智能的叙事优势在于替代人不愿做、做不了的工作
-- **链接**：https://www.huxiu.com/article/4843164.html
+- **链接**：[查看原文](https://www.huxiu.com/article/4843164.html)
 
 ---
 
