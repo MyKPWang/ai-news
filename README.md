@@ -1,14 +1,41 @@
-# 🤖 AI 行业资讯
+# 2026年3月18日 AI行业资讯
 
-每日AI行业大事件整理。
+## 🔥 国内
 
-## 目录
+**Kimi发布重磅技术报告《Attention Residuals》，改造大模型残差连接**
 
-- [2026年](./2026/README.md)
-
-## 关于
-
-本项目用于整理每日AI行业资讯，方便查阅和分享。
+- **时间**：2026年3月16日
+- **来源**：月之暗面Kimi
+- **内容**：Kimi发布技术报告，针对残差连接结构进行改造。实验证明，同等算力下效果提升1.25倍。
+- **行业评价**：
+  - 马斯克称"Impressive work"
+  - OpenAI o1主要发明者Jerry Tworek称其为"深度学习2.0"开端
+  - 前OpenAI联创Andrej Karpathy表示"看来我们还没把Attention is All You Need理解透"
+- **链接**：https://www.huxiu.com/article/4843241.html
 
 ---
-*由卧龙整理*
+
+**阿里成立Token事业群，吴泳铭亲自带队**
+
+- **内容**：阿里围绕Token成立新事业群，CEO吴泳铭亲自负责
+- **链接**：https://www.huxiu.com/article/4842495.html
+
+---
+
+**机器人为何比自动驾驶更受欢迎**
+
+- **来源**：虎嗅
+- **内容**：具身智能的叙事优势在于替代人不愿做、做不了的工作
+- **链接**：https://www.huxiu.com/article/4843164.html
+
+---
+
+## 🌍 国外
+
+**Perplexity宣布放弃MCP，转用API和CLI**
+
+**Meta宣布收购AI Agent社交网站Moltbook**
+
+---
+
+*来源：虎嗅、品玩、The Verge、TechCrunch*
