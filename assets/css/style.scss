@@ -2,25 +2,24 @@
 ---
 
 // 颜色
-$primary: #007aff;
-$red-accent: #ff3b30;
-$green-accent: #34c759;
-$bg-page: #f2f2f7;
+$primary: #0052d9;
+$primary-light: #3370ff;
+$accent: #00b42a;
+$bg-page: #f5f5f5;
 $bg-card: #fff;
-$text-main: #000;
-$text-secondary: #8e8e93;
-$border: #e5e5ea;
-$gray-box: #f2f2f7;
+$text-main: #1a1a1a;
+$text-secondary: #86909c;
+$border: #e5e6e8;
 
 * {
   box-sizing: border-box;
 }
 
 body {
-  font-family: -apple-system, BlinkMacSystemFont, "SF Pro Text", "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif;
+  font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif;
   background: $bg-page;
   color: $text-main;
-  line-height: 1.5;
+  line-height: 1.6;
   margin: 0;
   padding: 0;
   -webkit-font-smoothing: antialiased;
@@ -29,80 +28,121 @@ body {
 .container {
   max-width: 600px;
   margin: 0 auto;
-  padding: 16px;
+  padding: 12px;
 }
 
 // 顶部
 .top-bar {
   background: $bg-card;
-  padding: 20px 16px;
-  margin-bottom: 12px;
+  padding: 16px;
   border-radius: 12px;
-  box-shadow: 0 1px 2px rgba(0,0,0,0.05);
+  margin-bottom: 12px;
+  box-shadow: 0 1px 2px rgba(0,0,0,0.04);
   
   .date {
-    font-size: 13px;
+    font-size: 12px;
     color: $text-secondary;
-    margin-bottom: 6px;
+    margin-bottom: 4px;
   }
   
   h1 {
-    font-size: 24px;
+    font-size: 22px;
     font-weight: 700;
     margin: 0;
-    color: #000;
+    color: $text-main;
   }
 }
 
-// 文章卡片
-.post {
+// 热点导览
+.hot-list {
   background: $bg-card;
   border-radius: 12px;
-  box-shadow: 0 1px 2px rgba(0,0,0,0.05);
-  overflow: hidden;
-}
-
-// 分类标题
-.category-header {
-  padding: 16px;
-  border-bottom: 1px solid $border;
+  padding: 14px 16px;
+  margin-bottom: 12px;
+  box-shadow: 0 1px 2px rgba(0,0,0,0.04);
   
-  &.国内 {
-    background: linear-gradient(135deg, #fff5f5, #fff);
-    border-left: 4px solid $red-accent;
-    margin-left: 0;
-  }
-  
-  &.国外 {
-    background: linear-gradient(135deg, #f0f7ff, #fff);
-    border-left: 4px solid $primary;
-  }
-  
-  h2 {
-    font-size: 17px;
+  .section-title {
+    font-size: 13px;
     font-weight: 600;
-    margin: 0;
+    color: $primary;
+    margin-bottom: 10px;
     display: flex;
     align-items: center;
-    gap: 8px;
+    gap: 6px;
+    
+    &::before {
+      content: "●";
+      font-size: 8px;
+    }
+  }
+  
+  ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+  
+  li {
+    font-size: 14px;
+    color: $text-main;
+    padding: 8px 0;
+    border-bottom: 1px solid #f0f0f0;
+    line-height: 1.5;
+    
+    &:last-child {
+      border-bottom: none;
+    }
+    
+    .num {
+      color: $primary;
+      font-weight: 600;
+      margin-right: 6px;
+    }
+    
+    .tag {
+      display: inline-block;
+      font-size: 11px;
+      padding: 1px 6px;
+      border-radius: 3px;
+      margin-right: 6px;
+      font-weight: 500;
+      
+      &.国内 {
+        background: #ffe5e5;
+        color: #ff4d4f;
+      }
+      
+      &.国外 {
+        background: #e6f4ff;
+        color: $primary;
+      }
+    }
   }
 }
 
-// 新闻条目
-.news-item {
-  padding: 16px;
-  border-bottom: 1px solid $border;
+// 新闻卡片
+.news-card {
+  background: $bg-card;
+  border-radius: 12px;
+  margin-bottom: 12px;
+  box-shadow: 0 1px 2px rgba(0,0,0,0.04);
+  overflow: hidden;
   
-  &:last-child {
-    border-bottom: none;
+  .card-header {
+    background: $primary;
+    padding: 12px 16px;
+    
+    .news-title {
+      font-size: 16px;
+      font-weight: 600;
+      color: #fff;
+      margin: 0;
+      line-height: 1.4;
+    }
   }
   
-  .news-title {
-    font-size: 16px;
-    font-weight: 600;
-    margin: 0 0 8px 0;
-    color: $text-main;
-    line-height: 1.4;
+  .card-body {
+    padding: 14px 16px;
   }
   
   .news-meta {
@@ -110,7 +150,7 @@ body {
     gap: 12px;
     font-size: 12px;
     color: $text-secondary;
-    margin-bottom: 8px;
+    margin-bottom: 10px;
     
     .source {
       color: $primary;
@@ -118,102 +158,126 @@ body {
     }
   }
   
-  // 红色菱形引导符
-  .content-list {
-    margin: 8px 0;
-    padding-left: 0;
-    list-style: none;
+  .news-content {
+    font-size: 14px;
+    color: $text-main;
+    line-height: 1.7;
     
-    > li {
-      position: relative;
-      padding-left: 14px;
-      margin-bottom: 6px;
-      font-size: 14px;
-      color: #3c3c43;
-      line-height: 1.5;
+    // 红色菱形引导
+    .content-list {
+      margin: 8px 0;
+      padding-left: 0;
+      list-style: none;
       
-      &::before {
-        content: "♦";
-        position: absolute;
-        left: 0;
-        color: $red-accent;
-        font-size: 8px;
-        top: 5px;
-      }
-    }
-  }
-  
-  // 浅灰框包裹的子项
-  .feature-box {
-    background: $gray-box;
-    border-radius: 10px;
-    padding: 12px;
-    margin: 10px 0;
-    
-    ul {
-      margin: 0;
-      padding-left: 14px;
-      
-      li {
-        font-size: 13px;
-        color: #3c3c43;
-        margin-bottom: 4px;
-        list-style: none;
+      > li {
         position: relative;
         padding-left: 14px;
+        margin-bottom: 6px;
         
         &::before {
           content: "♦";
           position: absolute;
           left: 0;
-          color: $red-accent;
+          color: #ff4d4f;
           font-size: 8px;
-          top: 4px;
+          top: 5px;
         }
+      }
+    }
+    
+    // 数字高亮
+    .highlight-num {
+      color: $primary;
+      font-weight: 600;
+      font-size: 15px;
+    }
+    
+    // 灰色框
+    .feature-box {
+      background: #f7f8fa;
+      border-radius: 8px;
+      padding: 10px 12px;
+      margin: 10px 0;
+      
+      ul {
+        margin: 0;
+        padding-left: 14px;
         
-        &:last-child {
-          margin-bottom: 0;
+        li {
+          font-size: 13px;
+          color: $text-main;
+          margin-bottom: 4px;
+          list-style: none;
+          position: relative;
+          padding-left: 14px;
+          
+          &::before {
+            content: "♦";
+            position: absolute;
+            left: 0;
+            color: #ff4d4f;
+            font-size: 8px;
+            top: 4px;
+          }
+          
+          &:last-child {
+            margin-bottom: 0;
+          }
         }
       }
     }
   }
   
-  // 高亮文本
-  .highlight {
-    background: #fff3cd;
-    padding: 1px 5px;
-    border-radius: 4px;
-    font-size: 13px;
-  }
-  
-  // 链接按钮
-  .news-link {
-    display: inline-flex;
-    align-items: center;
-    color: $primary;
-    text-decoration: none;
-    font-size: 13px;
-    font-weight: 500;
-    margin-top: 4px;
+  .card-footer {
+    padding: 10px 16px;
+    border-top: 1px solid #f0f0f0;
     
-    &:hover {
-      text-decoration: underline;
-    }
-    
-    &::after {
-      content: " →";
+    .news-link {
+      color: $primary;
+      text-decoration: none;
+      font-size: 13px;
+      font-weight: 500;
+      
+      &:hover {
+        text-decoration: underline;
+      }
+      
+      &::after {
+        content: " →";
+      }
     }
   }
   
-  // 引用块（类似Twitter截图）
-  .quote-block {
-    background: #f9f9f9;
-    border-radius: 8px;
-    padding: 12px;
-    margin: 10px 0;
-    border-left: 3px solid $primary;
-    font-size: 13px;
-    color: #3c3c43;
+  // 国外分类用不同颜色
+  &.overseas .card-header {
+    background: #6b7280;
+  }
+}
+
+// 简单新闻（无详情）
+.simple-card {
+  background: $bg-card;
+  border-radius: 12px;
+  padding: 14px 16px;
+  margin-bottom: 10px;
+  box-shadow: 0 1px 2px rgba(0,0,0,0.04);
+  
+  .news-title {
+    font-size: 15px;
+    font-weight: 600;
+    color: $text-main;
+    margin: 0 0 6px 0;
+    line-height: 1.4;
+  }
+  
+  .news-meta {
+    font-size: 12px;
+    color: $text-secondary;
+    
+    .source {
+      color: $primary;
+      font-weight: 500;
+    }
   }
 }
 
@@ -222,25 +286,32 @@ body {
   text-align: center;
   color: $text-secondary;
   font-size: 12px;
-  padding: 20px;
-  margin-top: 12px;
+  padding: 16px;
 }
 
-// 响应式
-@media (max-width: 480px) {
-  .container {
-    padding: 8px;
+// 分类标题
+.category-divider {
+  font-size: 15px;
+  font-weight: 600;
+  color: $text-main;
+  padding: 16px 0 12px 0;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  
+  &::before {
+    content: "";
+    width: 4px;
+    height: 16px;
+    background: $primary;
+    border-radius: 2px;
   }
   
-  .top-bar {
-    padding: 16px;
-    
-    h1 {
-      font-size: 20px;
-    }
+  &.国内::before {
+    background: #ff4d4f;
   }
   
-  .news-item {
-    padding: 14px;
+  &.国外::before {
+    background: #6b7280;
   }
 }
