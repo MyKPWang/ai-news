@@ -32,62 +32,25 @@ body {
   padding: 12px;
 }
 
-// 顶部提示框
-.tip-box {
-  background: #f2f2f7;
-  border-radius: 10px;
-  padding: 12px 14px;
-  margin-bottom: 12px;
-  display: flex;
-  gap: 10px;
-  align-items: flex-start;
-  
-  .avatar {
-    width: 32px;
-    height: 32px;
-    background: linear-gradient(135deg, $primary, #00b42a);
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    color: #fff;
-    font-size: 14px;
-    font-weight: 600;
-    flex-shrink: 0;
-  }
-  
-  .tip-content {
-    font-size: 13px;
-    color: $text-secondary;
-    line-height: 1.5;
-    
-    .highlight {
-      color: $primary;
-      font-weight: 500;
-    }
-  }
-}
-
 // 顶部标题
 .top-bar {
   background: $bg-card;
-  padding: 16px;
+  padding: 20px 16px;
   border-radius: 12px;
-  margin-bottom: 12px;
+  margin-bottom: 16px;
   box-shadow: 0 1px 2px rgba(0,0,0,0.04);
   
   .date {
-    font-size: 12px;
+    font-size: 13px;
     color: $text-secondary;
-    margin-bottom: 4px;
+    margin-bottom: 6px;
   }
   
   h1 {
-    font-size: 22px;
+    font-size: 24px;
     font-weight: 700;
     margin: 0;
     color: $text-main;
-    line-height: 1.3;
   }
 }
 
@@ -95,23 +58,15 @@ body {
 .hot-list {
   background: $bg-card;
   border-radius: 12px;
-  padding: 14px 16px;
-  margin-bottom: 12px;
+  padding: 16px;
+  margin-bottom: 20px;
   box-shadow: 0 1px 2px rgba(0,0,0,0.04);
   
   .section-title {
-    font-size: 13px;
-    font-weight: 600;
-    color: $primary;
-    margin-bottom: 10px;
-    display: flex;
-    align-items: center;
-    gap: 6px;
-    
-    &::before {
-      content: "●";
-      font-size: 8px;
-    }
+    font-size: 15px;
+    font-weight: 700;
+    color: $text-main;
+    margin-bottom: 12px;
   }
   
   ul {
@@ -123,7 +78,7 @@ body {
   li {
     font-size: 14px;
     color: $text-main;
-    padding: 8px 0;
+    padding: 10px 0;
     border-bottom: 1px solid #f0f0f0;
     line-height: 1.5;
     
@@ -134,42 +89,39 @@ body {
     .num {
       color: $primary;
       font-weight: 600;
-      margin-right: 6px;
+      margin-right: 8px;
     }
   }
 }
 
-// TOP 3 标题块
-.top-title {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
+// 分类标题
+.category-title {
+  font-size: 18px;
+  font-weight: 700;
+  color: $text-main;
+  margin: 24px 0 12px 4px;
+  padding-left: 12px;
+  border-left: 4px solid $primary;
+  
+  &.国内 { border-left-color: #ff4d4f; }
+  &.国外 { border-left-color: $primary; }
+  &.手机 { border-left-color: #ff9500; }
+  &.硬件 { border-left-color: #5856d6; }
+}
+
+// 简化标题（无下划线）
+.simple-header {
   background: linear-gradient(135deg, $primary, $primary-dark);
   color: #fff;
   font-size: 14px;
   font-weight: 700;
-  padding: 10px 20px;
+  padding: 8px 16px;
   border-radius: 4px;
   margin: 20px 0 12px 0;
-  position: relative;
-  box-shadow: 0 2px 8px rgba(0, 82, 217, 0.3);
-  
-  // 左侧切角
-  &::before {
-    content: "";
-    position: absolute;
-    left: -8px;
-    top: 50%;
-    transform: translateY(-50%);
-    width: 0;
-    height: 0;
-    border-top: 8px solid transparent;
-    border-bottom: 8px solid transparent;
-    border-right: 8px solid $primary-dark;
-  }
+  display: inline-block;
 }
 
-// 新闻卡片
+// 新闻卡片（简化版）
 .news-card {
   background: $bg-card;
   border-radius: 12px;
@@ -178,7 +130,7 @@ body {
   overflow: hidden;
   
   .card-header {
-    padding: 16px 16px 12px 16px;
+    padding: 16px 16px 0 16px;
     
     .news-title {
       font-size: 17px;
@@ -189,23 +141,21 @@ body {
     }
   }
   
-  // 绿色虚线装饰
-  .title-underline {
+  // 绿色虚线装饰（可选）
+  .title-line {
     height: 2px;
     background: linear-gradient(90deg, $green-accent, transparent);
-    margin: 0 16px 14px 16px;
+    margin: 10px 16px 0 16px;
   }
   
   .card-body {
-    padding: 0 16px 16px 16px;
+    padding: 12px 16px 16px 16px;
   }
   
   .news-meta {
-    display: flex;
-    gap: 12px;
     font-size: 12px;
     color: $text-secondary;
-    margin-bottom: 10px;
+    margin-bottom: 8px;
     
     .source {
       color: $primary;
@@ -218,28 +168,6 @@ body {
     color: $text-main;
     line-height: 1.8;
     
-    // 红色菱形引导
-    .content-list {
-      margin: 8px 0;
-      padding-left: 0;
-      list-style: none;
-      
-      > li {
-        position: relative;
-        padding-left: 14px;
-        margin-bottom: 6px;
-        
-        &::before {
-          content: "♦";
-          position: absolute;
-          left: 0;
-          color: $red-accent;
-          font-size: 8px;
-          top: 5px;
-        }
-      }
-    }
-    
     // 数字高亮
     .highlight-num {
       color: $primary;
@@ -251,20 +179,20 @@ body {
     .feature-box {
       background: #f7f8fa;
       border-radius: 8px;
-      padding: 10px 12px;
+      padding: 12px;
       margin: 10px 0;
       
       ul {
         margin: 0;
-        padding-left: 14px;
+        padding-left: 0;
+        list-style: none;
         
         li {
           font-size: 13px;
           color: $text-main;
-          margin-bottom: 4px;
-          list-style: none;
-          position: relative;
+          margin-bottom: 6px;
           padding-left: 14px;
+          position: relative;
           
           &::before {
             content: "♦";
@@ -275,17 +203,14 @@ body {
             top: 4px;
           }
           
-          &:last-child {
-            margin-bottom: 0;
-          }
+          &:last-child { margin-bottom: 0; }
         }
       }
     }
   }
   
   .card-footer {
-    padding: 12px 16px;
-    border-top: 1px solid #f0f0f0;
+    padding: 0 16px 16px 16px;
     
     .news-link {
       color: $primary;
@@ -293,18 +218,13 @@ body {
       font-size: 13px;
       font-weight: 500;
       
-      &:hover {
-        text-decoration: underline;
-      }
-      
-      &::after {
-        content: " →";
-      }
+      &:hover { text-decoration: underline; }
+      &::after { content: " →"; }
     }
   }
 }
 
-// 简单新闻
+// 简单新闻（无详情卡片）
 .simple-card {
   background: $bg-card;
   border-radius: 12px;
@@ -316,7 +236,7 @@ body {
     font-size: 15px;
     font-weight: 600;
     color: $text-main;
-    margin: 0 0 6px 0;
+    margin: 0 0 4px 0;
     line-height: 1.4;
   }
   
@@ -336,24 +256,5 @@ body {
   text-align: center;
   color: $text-secondary;
   font-size: 12px;
-  padding: 16px;
-}
-
-// 分类标题
-.category-divider {
-  font-size: 15px;
-  font-weight: 600;
-  color: $text-main;
-  padding: 20px 0 12px 0;
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  
-  &::before {
-    content: "";
-    width: 4px;
-    height: 16px;
-    background: $primary;
-    border-radius: 2px;
-  }
+  padding: 20px;
 }
