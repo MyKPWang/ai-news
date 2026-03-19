@@ -1,0 +1,12 @@
+title: "AI行业资讯"
+description: "每日收集AI、大模型、手机、智能硬件相关资讯"
+theme: minima
+
+sass:
+  style: compressed
+
+defaults:
+  - scope:
+      path: ""
+    values:
+      layout: default
