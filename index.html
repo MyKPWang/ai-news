@@ -36,10 +36,14 @@
     .news-meta { font-size: 12px; color: #86909c; margin-bottom: 8px; }
     .news-content { font-size: 14px; color: #4a4a4a; }
     .highlight-num { color: #0052d9; font-weight: 600; }
+    .card-footer { padding: 0 16px 16px; }
+    .news-link { color: #0052d9; text-decoration: none; font-size: 13px; }
+    .news-link::after { content: " →"; }
     
     .simple-card { background: #fff; border-radius: 12px; padding: 14px 16px; margin-bottom: 10px; }
     .simple-card .news-title { font-size: 15px; color: #1a1a1a; font-weight: 600; }
     .simple-card .news-content { font-size: 13px; color: #666; margin-top: 4px; }
+    .simple-card .news-link { color: #0052d9; text-decoration: none; font-size: 13px; display: inline-block; margin-top: 6px; }
     
     .insight { background: linear-gradient(135deg, #0052d9, #0039a8); border-radius: 12px; padding: 20px; margin-top: 24px; color: #fff; }
     .insight h3 { font-size: 16px; margin: 0 0 12px 0; }
@@ -81,6 +85,7 @@
         <div class="news-meta">来源：虎嗅</div>
         <div class="news-content">百度智能云发布产品调价公告，这是继阿里云之后又一家涨价的云服务商。</div>
       </div>
+      <div class="card-footer"><a class="news-link" href="https://www.huxiu.com/">查看原文</a></div>
     </div>
 
     <div class="news-card">
@@ -89,6 +94,7 @@
         <div class="news-meta">来源：虎嗅</div>
         <div class="news-content">有传闻称网易使用AI清退全部外包人员，网易对此作出回应。</div>
       </div>
+      <div class="card-footer"><a class="news-link" href="https://www.huxiu.com/">查看原文</a></div>
     </div>
 
     <div class="news-card">
@@ -97,6 +103,7 @@
         <div class="news-meta">来源：虎嗅</div>
         <div class="news-content">小米AI领域重要人物罗福莉自曝新模型训练过程，引发业内关注。林俊旸点赞。</div>
       </div>
+      <div class="card-footer"><a class="news-link" href="https://www.huxiu.com/">查看原文</a></div>
     </div>
 
     <div class="news-card">
@@ -105,16 +112,13 @@
         <div class="news-meta">来源：虎嗅</div>
         <div class="news-content">一篇关于AI Coding实战的文章引发关注：10年祖传系统，54万行代码，仅用2周完成重构。展示了AI在编程领域的巨大潜力。</div>
       </div>
+      <div class="card-footer"><a class="news-link" href="https://www.huxiu.com/article/4843407.html">查看原文</a></div>
     </div>
 
     <div class="simple-card">
       <div class="news-title">斑马智行再次递表港交所</div>
-      <div class="news-content">背靠上汽、阿里，斑马智行冲击上市，940万辆车上的生意为何越做越亏？</div>
-    </div>
-
-    <div class="simple-card">
-      <div class="news-title">阿里犯了大忌：临阵换将</div>
-      <div class="news-content">来源：虎嗅</div>
+      <div class="news-content">背靠上汽、阿里，940万辆车上的生意</div>
+      <a class="news-link" href="https://www.huxiu.com/article/4843393.html">查看原文</a>
     </div>
 
     <!-- 国外AI咨询 -->
@@ -130,6 +134,7 @@
           <div class="quote-author">— 黄仁勋</div>
         </div>
       </div>
+      <div class="card-footer"><a class="news-link" href="https://www.huxiu.com/article/4843388.html">查看原文</a></div>
     </div>
 
     <div class="news-card">
@@ -138,6 +143,7 @@
         <div class="news-meta">来源：虎嗅</div>
         <div class="news-content">一篇文章指出AI正在吞噬所有软件，传统软件行业面临前所未有的变革。</div>
       </div>
+      <div class="card-footer"><a class="news-link" href="https://www.huxiu.com/article/4842738.html">查看原文</a></div>
     </div>
 
     <div class="news-card">
@@ -146,11 +152,12 @@
         <div class="news-meta">来源：虎嗅</div>
         <div class="news-content">探讨企业投入大量资金布局AI，但实际效果却不尽如人意的现象。</div>
       </div>
+      <div class="card-footer"><a class="news-link" href="https://www.huxiu.com/article/4842126.html">查看原文</a></div>
     </div>
 
     <div class="simple-card">
       <div class="news-title">OpenClaw之后，AI AGENT赛道研讨</div>
-      <div class="news-content">AI AGENT成为行业热点，OpenClaw之后业内继续深入讨论。</div>
+      <a class="news-link" href="https://www.huxiu.com/article/4843429.html">查看原文</a>
     </div>
 
     <!-- 其他科技资讯 -->
@@ -162,6 +169,7 @@
         <div class="news-meta">来源：虎嗅</div>
         <div class="news-content">特斯拉与宁德时代的合作关系传出新动向，市场关注双方是否会"分手"。</div>
       </div>
+      <div class="card-footer"><a class="news-link" href="https://www.huxiu.com/article/4843387.html">查看原文</a></div>
     </div>
 
     <div class="news-card">
@@ -170,6 +178,7 @@
         <div class="news-meta">来源：虎嗅</div>
         <div class="news-content">新款宝马i3被称为10年来最好的纯电车，风格大胆，引发市场关注。</div>
       </div>
+      <div class="card-footer"><a class="news-link" href="https://www.huxiu.com/article/4843348.html">查看原文</a></div>
     </div>
 
     <div class="news-card">
@@ -178,16 +187,17 @@
         <div class="news-meta">来源：虎嗅</div>
         <div class="news-content">自主品牌车企竞争激烈，吉利猛追比亚迪，市场格局是否有变？</div>
       </div>
+      <div class="card-footer"><a class="news-link" href="https://www.huxiu.com/article/4843349.html">查看原文</a></div>
     </div>
 
     <div class="simple-card">
       <div class="news-title">2025全球汽车销量TOP10出炉</div>
-      <div class="news-content">2025年全球汽车销量排名公布，中国品牌表现亮眼。</div>
+      <a class="news-link" href="https://www.huxiu.com/article/4837246.html">查看原文</a>
     </div>
 
     <div class="simple-card">
       <div class="news-title">中国汽车出海，为什么从造船开始？</div>
-      <div class="news-content">中国汽车出口暴涨73%，车企开始自建运输船队。</div>
+      <a class="news-link" href="https://www.huxiu.com/article/4843408.html">查看原文</a>
     </div>
 
     <!-- 今日洞察 -->
