@@ -19,20 +19,16 @@
     .date { font-size: 13px; color: #86909c; margin-bottom: 6px; }
     h1 { font-size: 24px; font-weight: 700; margin: 0; }
     
-    /* 今日热点 */
     .hot-list { background: #fff; border-radius: 12px; padding: 12px 16px; margin-bottom: 16px; }
     .section-title { font-size: 15px; font-weight: 700; margin-bottom: 8px; }
     .hot-list li { font-size: 14px; padding: 6px 0; border-bottom: 1px solid #f0f0f0; }
     .hot-list li:last-child { border-bottom: none; }
     .num { color: #0052d9; font-weight: 600; margin-right: 8px; }
     
-    /* 分类标题 */
     .category-title { font-size: 18px; font-weight: 700; margin: 24px 0 12px 4px; padding-left: 12px; border-left: 4px solid #0052d9; }
     .category-title.red { border-left-color: #ff4d4f; }
-    .category-title.green { border-left-color: #00b42a; }
     .category-title.orange { border-left-color: #ff9500; }
     
-    /* 卡片 */
     .news-card { background: #fff; border-radius: 12px; margin-bottom: 12px; overflow: hidden; }
     .card-header { padding: 16px 16px 0 16px; }
     .news-title { font-size: 17px; font-weight: 700; color: #0052d9; margin: 0; line-height: 1.4; }
@@ -40,25 +36,15 @@
     .news-meta { font-size: 12px; color: #86909c; margin-bottom: 8px; }
     .news-content { font-size: 14px; color: #4a4a4a; }
     .highlight-num { color: #0052d9; font-weight: 600; }
-    .feature-box { background: #f7f8fa; border-radius: 6px; padding: 10px 12px; margin: 0 16px 16px 16px; }
-    .feature-box ul { margin: 0; padding-left: 0; }
-    .feature-box li { font-size: 13px; margin-bottom: 4px; list-style: none; padding-left: 4px; }
-    .feature-box li::before { content: "♦"; position: absolute; left: 0; color: #ff4d4f; font-size: 8px; top: 4px; }
-    .card-footer { padding: 0 16px 16px; }
-    .news-link { color: #0052d9; text-decoration: none; font-size: 13px; }
-    .news-link::after { content: " →"; }
     
-    /* 简单卡片 */
     .simple-card { background: #fff; border-radius: 12px; padding: 14px 16px; margin-bottom: 10px; }
     .simple-card .news-title { font-size: 15px; color: #1a1a1a; font-weight: 600; }
     .simple-card .news-content { font-size: 13px; color: #666; margin-top: 4px; }
     
-    /* 洞察 */
     .insight { background: linear-gradient(135deg, #0052d9, #0039a8); border-radius: 12px; padding: 20px; margin-top: 24px; color: #fff; }
     .insight h3 { font-size: 16px; margin: 0 0 12px 0; }
     .insight p { font-size: 14px; line-height: 1.8; margin: 0; opacity: 0.95; }
     
-    /* 名人名言 */
     .quote { background: #f0f7ff; border-left: 3px solid #0052d9; padding: 8px; margin: 8px 16px; border-radius: 4px; }
     .quote-text { font-size: 13px; color: #333; font-style: italic; }
     .quote-author { font-size: 11px; color: #666; margin-top: 4px; }
@@ -77,12 +63,12 @@
     <div class="hot-list">
       <div class="section-title">今日热点</div>
       <ul>
-        <li><span class="num">1</span> 黄仁勋GTC大会：推理拐点已至，Token是新大宗商品</li>
-        <li><span class="num">2</span> 马化腾首度分享"养虾"思考：AI要具备"活人感"，微信将落地AI智能体</li>
-        <li><span class="num">3</span> Nvidia发布Vera Rubin平台：推理效率提升10倍，成本降低90%</li>
-        <li><span class="num">4</span> Nvidia推出企业AI Agent平台，17家软件巨头加入</li>
-        <li><span class="num">5</span> 小米发布MiMo-V2-Pro：支持1M上下文，定价$1/百万tokens</li>
-        <li><span class="num">6</span> 存储芯片涨价潮：阿里云、百度云涨价最高34%</li>
+        <li><span class="num">1</span>黄仁勋：Token是新的大宗商品，AI算力就是收入</li>
+        <li><span class="num">2</span>百度智能云发布产品调价公告，涨价了</li>
+        <li><span class="num">3</span>网易回应"使用AI清退全部外包"传闻</li>
+        <li><span class="num">4</span>罗福莉自曝小米新模型训练过程，林俊旸点赞</li>
+        <li><span class="num">5</span>特斯拉要甩掉宁德时代？</li>
+        <li><span class="num">6</span>AI正在吞噬所有软件</li>
       </ul>
     </div>
 
@@ -90,185 +76,127 @@
     <div class="category-title red">🤖 国内AI咨询</div>
 
     <div class="news-card">
-      <div class="card-header"><h3 class="news-title">马化腾首度分享"养虾"思考：AI要具备"活人感"</h3></div>
-      <div class="card-body">
-        <div class="news-meta">来源：36氪</div>
-        <div class="news-content">腾讯CEO马化腾近日表示，AI要具备"活人感"，微信将落地AI智能体。这是腾讯对AI Agent领域的重要布局信号，意味着微信生态将迎来AI助手新时代。</div>
-      </div>
-      <div class="card-footer"><a class="news-link" href="https://36kr.com/">查看原文</a></div>
-    </div>
-
-    <div class="news-card">
-      <div class="card-header"><h3 class="news-title">MiniMax发布M2.7模型，开启AI自我进化新阶段</h3></div>
-      <div class="card-body">
-        <div class="news-meta">来源：36氪</div>
-        <div class="news-content">MiniMax发布M2.7模型，标志着AI进入自我进化新阶段。这是国内大模型领域的又一重要里程碑，意味着AI可以自主学习和改进自身的算法。</div>
-      </div>
-    </div>
-
-    <div class="news-card">
-      <div class="card-header"><h3 class="news-title">小米大模型MiMo-V2-Pro发布：支持1M上下文窗口</h3></div>
-      <div class="card-body">
-        <div class="news-meta">来源：36氪</div>
-        <div class="news-content">3月19日，小米正式发布Xiaomi MiMo-V2-Pro大模型，支持<span class="highlight-num">100万Token</span>超长上下文，这是国内首个支持百万级上下文的大模型商用产品。</div>
-      </div>
-      <div class="feature-box">
-        <ul>
-          <li>256K以内：输入<span class="highlight-num">$1</span>/百万tokens，输出<span class="highlight-num">$3</span>/百万tokens</li>
-          <li>1M以内：输入<span class="highlight-num">$2</span>/百万tokens，输出<span class="highlight-num">$6</span>/百万tokens</li>
-        </ul>
-      </div>
-    </div>
-
-    <div class="news-card">
-      <div class="card-header"><h3 class="news-title">Kimi发布《Attention Residuals》技术报告，同等算力效果提升1.25倍</h3></div>
+      <div class="card-header"><h3 class="news-title">百度智能云发布产品调价公告</h3></div>
       <div class="card-body">
         <div class="news-meta">来源：虎嗅</div>
-        <div class="news-content">
-          月之暗面Kimi发布重磅技术报告《Attention Residuals》，针对大模型残差连接结构进行改造。实验证明，同等算力下效果提升<span class="highlight-num">1.25倍</span>。马斯克评价"Impressive work"，OpenAI Jerry Tworek称其为"深度学习2.0"开端。
-        </div>
-      </div>
-      <div class="card-footer"><a class="news-link" href="https://www.huxiu.com/article/4843241.html">查看原文</a></div>
-    </div>
-
-    <div class="news-card">
-      <div class="card-header"><h3 class="news-title">阿里云、百度云AI算力涨价最高34%</h3></div>
-      <div class="card-body">
-        <div class="news-meta">来源：36氪</div>
-        <div class="news-content">3月18日，阿里云、百度智能云同步上调AI算力与存储产品价格，最高涨幅达<span class="highlight-num">34%</span>。2025年下半年以来全球存储芯片进入新一轮涨价周期，2026年-2027年价格将保持坚挺。</div>
-      </div>
-      <div class="card-footer"><a class="news-link" href="https://36kr.com/newsflashes/3729050203569795">查看原文</a></div>
-    </div>
-
-    <div class="news-card">
-      <div class="card-header"><h3 class="news-title">腾讯高管：行业别无选择，只能将成本上涨转嫁</h3></div>
-      <div class="card-body">
-        <div class="news-meta">来源：36氪</div>
-        <div class="news-content">腾讯高管回应存储芯片涨价问题时表示，AI需求激增带动DRAM及HBM需求回升，供应商优先保障规模最大的客户。行业只能将成本转嫁给下游。</div>
+        <div class="news-content">百度智能云发布产品调价公告，这是继阿里云之后又一家涨价的云服务商。</div>
       </div>
     </div>
 
     <div class="news-card">
-      <div class="card-header"><h3 class="news-title">阿里成立Token事业群，吴泳铭亲自带队</h3></div>
+      <div class="card-header"><h3 class="news-title">网易回应"使用AI清退全部外包"传闻</h3></div>
       <div class="card-body">
         <div class="news-meta">来源：虎嗅</div>
-        <div class="news-content">阿里围绕Token成立新事业群，CEO吴泳铭亲自负责，聚焦AI基础设施布局。</div>
+        <div class="news-content">有传闻称网易使用AI清退全部外包人员，网易对此作出回应。</div>
       </div>
+    </div>
+
+    <div class="news-card">
+      <div class="card-header"><h3 class="news-title">罗福莉自曝小米新模型训练过程</h3></div>
+      <div class="card-body">
+        <div class="news-meta">来源：虎嗅</div>
+        <div class="news-content">小米AI领域重要人物罗福莉自曝新模型训练过程，引发业内关注。林俊旸点赞。</div>
+      </div>
+    </div>
+
+    <div class="news-card">
+      <div class="card-header"><h3 class="news-title">AI Coding实战：10年祖传系统，54万行代码，2周重构结束</h3></div>
+      <div class="card-body">
+        <div class="news-meta">来源：虎嗅</div>
+        <div class="news-content">一篇关于AI Coding实战的文章引发关注：10年祖传系统，54万行代码，仅用2周完成重构。展示了AI在编程领域的巨大潜力。</div>
+      </div>
+    </div>
+
+    <div class="simple-card">
+      <div class="news-title">斑马智行再次递表港交所</div>
+      <div class="news-content">背靠上汽、阿里，斑马智行冲击上市，940万辆车上的生意为何越做越亏？</div>
+    </div>
+
+    <div class="simple-card">
+      <div class="news-title">阿里犯了大忌：临阵换将</div>
+      <div class="news-content">来源：虎嗅</div>
     </div>
 
     <!-- 国外AI咨询 -->
     <div class="category-title">🌍 国外AI咨询</div>
 
     <div class="news-card">
-      <div class="card-header"><h3 class="news-title">黄仁勋GTC大会演讲：推理拐点已至，Token是新大宗商品</h3></div>
-      <div class="card-body">
-        <div class="news-meta">来源：VentureBeat</div>
-        <div class="news-content">英伟达CEO黄仁勋在GTC 2026大会上表示："推理一旦建成就会受到电力限制。在这种受限的基础设施中，必须确保推理效率达到极致。因为推理是工作负载，Token是新大宗商品，计算就是收入。"</div>
-        <div class="quote">
-          <div class="quote-text">"推理是工作负载，Token是新大宗商品，计算就是收入。"</div>
-          <div class="quote-author">— 黄仁勋 英伟达CEO</div>
-        </div>
-      </div>
-    </div>
-
-    <div class="news-card">
-      <div class="card-header"><h3 class="news-title">Nvidia发布Vera Rubin平台：推理效率提升10倍</h3></div>
-      <div class="card-body">
-        <div class="news-meta">来源：VentureBeat</div>
-        <div class="news-content">
-          Nvidia在GTC 2026大会上发布Vera Rubin平台，声称相比Blackwell系统，推理吞吐量提升<span class="highlight-num">10倍</span>，每token成本降低<span class="highlight-num">90%</span>。AWS、Google Cloud、Microsoft Azure和Oracle Cloud都将提供该平台。
-        </div>
-      </div>
-    </div>
-
-    <div class="news-card">
-      <div class="card-header"><h3 class="news-title">Nvidia推出企业AI Agent平台</h3></div>
-      <div class="card-body">
-        <div class="news-meta">来源：VentureBeat</div>
-        <div class="news-content">
-          Nvidia发布Agent Toolkit开源平台，<span class="highlight-num">17家企业软件巨头</span>已宣布采用，包括Adobe、Salesforce、SAP、ServiceNow、Siemens、CrowdStrike、Atlassian等。企业AI Agent生态正在加速构建。
-        </div>
-      </div>
-    </div>
-
-    <div class="news-card">
-      <div class="card-header"><h3 class="news-title">Nvidia DGX Station：桌面超算可运行万亿参数模型</h3></div>
-      <div class="card-body">
-        <div class="news-meta">来源：VentureBeat</div>
-        <div class="news-content">GTC 2026上发布的DGX Station是一款桌面超级计算机，可运行<span class="highlight-num">万亿参数</span>AI模型，无需云端支持。这意味着个人开发者和小团队也能拥有强大的AI计算能力。</div>
-      </div>
-    </div>
-
-    <div class="news-card">
-      <div class="card-header"><h3 class="news-title">AI Agent自主重新设计记忆系统，召回率从60%提至93%</h3></div>
-      <div class="card-body">
-        <div class="news-meta">来源：VentureBeat</div>
-        <div class="news-content">一位开发者让AI Agent自主设计记忆系统。该Agent重新设计了自己的记忆架构，将召回率从<span class="highlight-num">60%</span>大幅提升至<span class="highlight-num">93%</span>，整个过程仅花费<span class="highlight-num">$2</span>。</div>
-      </div>
-    </div>
-
-    <div class="news-card">
-      <div class="card-header"><h3 class="news-title">五角大楼回应Anthropic诉讼：称其对国家安全构成风险</h3></div>
-      <div class="card-body">
-        <div class="news-meta">来源：The Verge</div>
-        <div class="news-content">Anthropic就其"供应链风险" designation提起诉讼，五角大楼回应称该公司可能会"试图禁用其技术或主动改变其模型的行为"，这"对国家安全来说是不可接受的风险"。</div>
-      </div>
-    </div>
-
-    <div class="simple-card">
-      <div class="news-title">Perplexity发布Comet浏览器iOS版</div>
-      <div class="news-content">Perplexity推出了其Comet浏览器iOS版，继续扩展AI搜索产品线。</div>
-    </div>
-
-    <div class="simple-card">
-      <div class="news-title">Open SWE：内部编码Agent的开源框架</div>
-      <div class="news-content">Open SWE是一个开源框架，为编码Agent提供核心架构组件，包括隔离的云沙箱、精选工具集、子Agent编排。</div>
-    </div>
-
-    <!-- 手机&硬件 -->
-    <div class="category-title.orange">📱 手机&硬件</div>
-
-    <div class="news-card">
-      <div class="card-header"><h3 class="news-title">手机厂商集体涨价，"千元机"正在消失</h3></div>
+      <div class="card-header"><h3 class="news-title">黄仁勋：Token是新的大宗商品</h3></div>
       <div class="card-body">
         <div class="news-meta">来源：虎嗅</div>
-        <div class="news-content">
-          存储芯片涨价潮传导至消费端。OPPO、vivo已正式宣布涨价，荣耀、小米也已收到调价通知。预计各品牌低端机涨价<span class="highlight-num">200-500元</span>，高端机型涨幅约<span class="highlight-num">1000元</span>。
+        <div class="news-content">"过去因为相信所以看见的那个token，现在不用相信就能看见"。黄仁勋在演讲中表示，Token是新的大宗商品，AI算力就是收入。</div>
+        <div class="quote">
+          <div class="quote-text">"过去因为相信所以看见的那个token，现在不用相信就能看见"</div>
+          <div class="quote-author">— 黄仁勋</div>
         </div>
       </div>
-      <div class="card-footer"><a class="news-link" href="https://www.huxiu.com/article/4843288.html">查看原文</a></div>
     </div>
 
     <div class="news-card">
-      <div class="card-header"><h3 class="news-title">京东云逆势降价：全系不涨价，最高降40%</h3></div>
+      <div class="card-header"><h3 class="news-title">AI正在吞噬所有软件</h3></div>
       <div class="card-body">
-        <div class="news-meta">来源：36氪</div>
-        <div class="news-content">在阿里云、百度云涨价的背景下，京东云宣布全系核心产品不涨价，数据库、中间件等产品平均降幅超<span class="highlight-num">16%</span>，最高降幅达<span class="highlight-num">40%</span>。</div>
+        <div class="news-meta">来源：虎嗅</div>
+        <div class="news-content">一篇文章指出AI正在吞噬所有软件，传统软件行业面临前所未有的变革。</div>
       </div>
-      <div class="card-footer"><a class="news-link" href="https://36kr.com/newsflashes/3728593444568707">查看原文</a></div>
     </div>
 
     <div class="news-card">
-      <div class="card-header"><h3 class="news-title">AI算力驱动散热需求爆发，液冷技术从"可选"变"强制标配"</h3></div>
+      <div class="card-header"><h3 class="news-title">企业大笔投入，为何AI却沦为昂贵"玩具"？</h3></div>
       <div class="card-body">
-        <div class="news-meta">来源：36氪</div>
-        <div class="news-content">国内液冷行业正呈现并购整合加速、上市公司定增募资火热的特征。业内预测，随着算力持续放量与数据中心建设提速，液冷技术已从"可选配置"变为"强制标配"。</div>
+        <div class="news-meta">来源：虎嗅</div>
+        <div class="news-content">探讨企业投入大量资金布局AI，但实际效果却不尽如人意的现象。</div>
       </div>
-      <div class="card-footer"><a class="news-link" href="https://36kr.com/newsflashes/3729051399110279">查看原文</a></div>
     </div>
 
     <div class="simple-card">
-      <div class="news-title">iOS 26.4修复快速输入时键盘不准确问题</div>
-      <div class="news-content">iOS 26.4专门修复了快速打字时字符未真正插入的bug，预计将很快公开发布。</div>
+      <div class="news-title">OpenClaw之后，AI AGENT赛道研讨</div>
+      <div class="news-content">AI AGENT成为行业热点，OpenClaw之后业内继续深入讨论。</div>
+    </div>
+
+    <!-- 其他科技资讯 -->
+    <div class="category-title.orange">📱 其他科技资讯</div>
+
+    <div class="news-card">
+      <div class="card-header"><h3 class="news-title">特斯拉要甩掉宁德时代？</h3></div>
+      <div class="card-body">
+        <div class="news-meta">来源：虎嗅</div>
+        <div class="news-content">特斯拉与宁德时代的合作关系传出新动向，市场关注双方是否会"分手"。</div>
+      </div>
+    </div>
+
+    <div class="news-card">
+      <div class="card-header"><h3 class="news-title">这辆"风格大胆"的i3，是宝马10年来最好的纯电车</h3></div>
+      <div class="card-body">
+        <div class="news-meta">来源：虎嗅</div>
+        <div class="news-content">新款宝马i3被称为10年来最好的纯电车，风格大胆，引发市场关注。</div>
+      </div>
+    </div>
+
+    <div class="news-card">
+      <div class="card-header"><h3 class="news-title">吉利猛追，能否撼动比亚迪王者地位？</h3></div>
+      <div class="card-body">
+        <div class="news-meta">来源：虎嗅</div>
+        <div class="news-content">自主品牌车企竞争激烈，吉利猛追比亚迪，市场格局是否有变？</div>
+      </div>
+    </div>
+
+    <div class="simple-card">
+      <div class="news-title">2025全球汽车销量TOP10出炉</div>
+      <div class="news-content">2025年全球汽车销量排名公布，中国品牌表现亮眼。</div>
+    </div>
+
+    <div class="simple-card">
+      <div class="news-title">中国汽车出海，为什么从造船开始？</div>
+      <div class="news-content">中国汽车出口暴涨73%，车企开始自建运输船队。</div>
     </div>
 
     <!-- 今日洞察 -->
     <div class="insight">
       <h3>💡 今日洞察</h3>
-      <p><strong>黄仁勋GTC大会</strong>成为今日最大亮点，老黄提出"Token是新大宗商品"预示着AI推理时代的全面到来。<strong>Nvidia</strong>一口气发布Vera Rubin平台、DGX Station、企业AI Agent平台三款产品，全面布局推理算力，17家软件巨头加入其生态。<br><br><strong>国内方面</strong>，马化腾首次谈AI"活人感"，微信将落地AI智能体，标志着腾讯正式入局AI Agent战场。Kimi发布技术报告效果提升1.25倍，展现国产大模型技术实力。<br><br>同时，存储芯片涨价正在重塑产业链——从云服务商到终端厂商都在寻求成本转嫁或差异化竞争。京东云逆势降价可能引发新一轮价格战。</p>
+      <p><strong>AI行业</strong>继续火热，黄仁勋提出"Token是新大宗商品"观点引发热议。<br><br><strong>国内云厂商</strong>纷纷涨价，百度智能云跟进调价，AI算力成本持续上升。<br><br><strong>AI应用</strong>正在加速落地，AI Coding、Agent成为热门赛道，企业大笔投入但效果存疑。<br><br><strong>汽车行业</strong>变革加速，特斯拉与宁德时代关系引发猜测，自主品牌竞争激烈。</p>
     </div>
 
-    <div class="sources">来源：VentureBeat、虎嗅、36氪、The Verge | 整理：卧龙</div>
+    <div class="sources">来源：虎嗅 | 整理：卧龙</div>
   </div>
 </body>
 </html>
