@@ -9,15 +9,15 @@
 </head>
 <body>
   <div class="container">
-    <!-- 顶部日期 -->
+    <!-- 顶部 -->
     <div class="top-bar">
-      <div class="date">{{ page.date | date: "%Y/%m/%d" }}</div>
+      <div class="date">{{ page.date | date: "%Y年%m月%d日" }}</div>
       <h1>AI行业资讯</h1>
     </div>
 
-    <article class="post">
+    <div class="post">
       {{ content }}
-    </article>
+    </div>
 
     <div class="sources">
       来源：虎嗅、品玩、36氪、tldr.tech、The Verge
