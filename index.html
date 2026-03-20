@@ -15,7 +15,7 @@
     }
     .container { max-width: 640px; margin: 0 auto; }
     
-    /* 顶部标题区 */
+    /* 顶部 */
     .header { margin-bottom: 16px; }
     .header h1 { font-size: 22px; font-weight: 700; color: #1a1a1a; margin-bottom: 4px; }
     .header .date { font-size: 13px; color: #999; }
@@ -42,110 +42,54 @@
     .hot-section .news-item:last-child { border-bottom: none; }
     .hot-section .news-item a { color: #fff; text-decoration: none; }
     
-    /* 分类标题 - 红色左边框 */
-    .category-title { 
-      font-size: 17px; 
-      font-weight: 700; 
-      margin: 20px 0 12px 0; 
-      padding-left: 12px; 
-      border-left: 4px solid #e74c3c;
-      color: #1a1a1a;
+    /* 分类标签 */
+    .tag { 
+      display: inline-block;
+      font-size: 13px; 
+      font-weight: 600;
+      padding: 4px 10px;
+      border-radius: 4px;
+      margin-bottom: 10px;
     }
-    .category-title.blue { border-left-color: #3498db; }
+    .tag.red { background: #ffeaea; color: #e74c3c; }
+    .tag.blue { background: #e8f4fd; color: #3498db; }
+    .tag.orange { background: #fff4e6; color: #f39c12; }
     
     /* 新闻卡片 */
     .news-card { 
       background: #fff; 
       border-radius: 10px; 
-      padding: 16px; 
-      margin-bottom: 12px;
-      box-shadow: 0 1px 3px rgba(0,0,0,0.08);
+      padding: 14px 16px; 
+      margin-bottom: 10px;
+      box-shadow: 0 1px 3px rgba(0,0,0,0.06);
     }
     .news-card .news-title { 
-      font-size: 16px; 
+      font-size: 15px; 
       font-weight: 600; 
-      color: #0052d9; 
-      margin-bottom: 6px;
+      color: #1a1a1a; 
+      margin-bottom: 4px;
       line-height: 1.4;
     }
     .news-card .news-meta { 
       font-size: 12px; 
       color: #999; 
-      margin-bottom: 8px; 
+      margin-bottom: 6px; 
     }
     .news-card .news-desc { 
       font-size: 14px; 
       color: #666; 
-      line-height: 1.5;
     }
-    .news-card .news-link { 
-      display: inline-block;
-      margin-top: 10px;
-      font-size: 13px; 
-      color: #0052d9;
-      text-decoration: none;
-    }
-    .news-card .news-link:after { content: " →"; }
     
-    /* 引用 */
-    .quote {
-      background: #f8f9fa;
-      border-left: 3px solid #0052d9;
-      padding: 10px 12px;
-      margin: 10px 0;
-      border-radius: 0 6px 6px 0;
-    }
-    .quote-text { font-size: 13px; color: #555; font-style: italic; }
-    .quote-author { font-size: 11px; color: #999; margin-top: 4px; }
-    
-    /* 简单卡片 */
-    .simple-card {
-      background: #fff;
-      border-radius: 10px;
-      padding: 14px 16px;
-      margin-bottom: 10px;
-      box-shadow: 0 1px 3px rgba(0,0,0,0.08);
-    }
-    .simple-card .news-title { font-size: 15px; font-weight: 600; color: #333; }
-    .simple-card .news-desc { font-size: 13px; color: #666; margin-top: 4px; }
-    .simple-card .news-link { font-size: 13px; color: #0052d9; text-decoration: none; }
-    
-    /* 大厂动态表格 */
-    .company-table {
-      background: #fff;
-      border-radius: 10px;
-      overflow: hidden;
-      margin-bottom: 16px;
-      box-shadow: 0 1px 3px rgba(0,0,0,0.08);
-    }
-    .company-table table { width: 100%; border-collapse: collapse; }
-    .company-table th { 
-      background: #f8f9fa;
-      padding: 10px 12px;
-      text-align: left;
-      font-size: 13px;
-      font-weight: 600;
-      color: #666;
-      border-bottom: 1px solid #eee;
-    }
-    .company-table td { 
-      padding: 10px 12px;
-      font-size: 13px;
-      color: #333;
-      border-bottom: 1px solid #f5f5f5;
-    }
-    .company-table tr:last-child td { border-bottom: none; }
-    
-    /* 洞察 */
+    /* 洞察 - 蓝色背景 */
     .insight {
       background: linear-gradient(135deg, #3498db, #1a5276);
       border-radius: 10px;
-      padding: 18px;
-      margin-top: 20px;
+      padding: 16px;
+      margin-top: 16px;
       color: #fff;
     }
-    .insight .section-title { font-size: 15px; font-weight: 700; margin-bottom: 12px; }
-    .insight p { font-size: 14px; line-height: 1.7; opacity: 0.95; }
+    .insight .section-title { font-size: 14px; font-weight: 700; margin-bottom: 10px; }
+    .insight p { font-size: 13px; line-height: 1.6; opacity: 0.95; }
     
     /* 来源 */
     .sources { 
@@ -159,7 +103,7 @@
 <body>
   <div class="container">
     <div class="header">
-      <h1>🤖 AI资讯早报</h1>
+      <h1>AI行业资讯</h1>
       <div class="date">2026年3月21日 周五</div>
     </div>
 
@@ -172,14 +116,12 @@
     </div>
 
     <!-- 国内AI -->
-    <div class="category-title">🏷️ 国内AI</div>
-    
+    <span class="tag red">🏷️ 国内AI</span>
     <div class="news-card">
       <div class="news-title">腾讯走到命运拐点了</div>
       <div class="news-meta">来源：虎嗅</div>
       <div class="news-desc">AI正从底层改写腾讯的增长逻辑、产品范式与商业基因。</div>
     </div>
-
     <div class="news-card">
       <div class="news-title">地平线争做"英伟达平替"</div>
       <div class="news-meta">来源：36氪</div>
@@ -187,46 +129,25 @@
     </div>
 
     <!-- 国外AI -->
-    <div class="category-title blue">🌍 国外AI</div>
-    
+    <span class="tag blue">🌍 国外AI</span>
     <div class="news-card">
       <div class="news-title">Meta AI审核系统将取代外包人员</div>
       <div class="news-meta">来源：The Verge</div>
       <div class="news-desc">Meta宣布将广泛部署AI支持助手，减少对第三方供应商的依赖。</div>
     </div>
-
     <div class="news-card">
       <div class="news-title">Samsung计划730亿美元扩张AI芯片产能</div>
       <div class="news-meta">来源：Wired</div>
-      <div class="news-desc">2026年增加22%投资，旨在超越SK海力士成为Nvidia最主要的内存供应商。</div>
-    </div>
-
-    <!-- 大厂动态 -->
-    <div class="category-title">🏢 大厂动态</div>
-    <div class="company-table">
-      <table>
-        <tr><th>公司</th><th>动态</th></tr>
-        <tr><td>Nvidia</td><td>发布Vera Rubin平台、NemoClaw安全版</td></tr>
-        <tr><td>Google</td><td>测试macOS版Gemini应用</td></tr>
-        <tr><td>Meta</td><td>AI审核系统将取代人工</td></tr>
-        <tr><td>Microsoft</td><td>重组AI部门，聚焦核心业务</td></tr>
-      </table>
-    </div>
-
-    <!-- 智能硬件 -->
-    <div class="category-title">🔧 智能硬件</div>
-    <div class="simple-card">
-      <div class="news-title">Alexa AI升级版登陆英国</div>
-      <div class="news-desc">Amazon的Alexa Plus首次在欧洲推出</div>
+      <div class="news-desc">2026年增加22%投资，旨在超越SK海力士。</div>
     </div>
 
     <!-- 洞察 -->
     <div class="insight">
       <div class="section-title">💡 今日洞察</div>
-      <p><strong>Kimi K2.5再次出圈：</strong>一周内两次被马斯克点名，Cursor基于Kimi K2.5微调，在编码测评中超越Claude Opus 4.6。这标志着国产大模型在AI编程领域取得实质性突破。</p>
+      <p><strong>Kimi K2.5再次出圈：</strong>一周内两次被马斯克点名，Cursor基于Kimi K2.5微调，在编码测评中超越Claude Opus 4.6，标志着国产大模型在AI编程领域取得突破。</p>
     </div>
 
-    <div class="sources">来源：虎嗅、36氪、机器之心、The Verge、Wired 等 | 整理：卧龙</div>
+    <div class="sources">来源：虎嗅、36氪、机器之心、The Verge、Wired 等</div>
   </div>
 </body>
 </html>
