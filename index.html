@@ -6,19 +6,38 @@
   <title>AI行业资讯</title>
   <style>
     * { box-sizing: border-box; margin: 0; padding: 0; }
-    body { font-family: -apple-system, BlinkMacSystemFont, "PingFang SC", "Helvetica Neue", Arial, sans-serif; background: #ffffff; color: #333; line-height: 1.6; padding: 12px; }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "PingFang SC", "Helvetica Neue", Arial, sans-serif;
+      background: #ffffff;
+      color: #333;
+      line-height: 1.6;
+      padding: 12px;
+    }
     .container { max-width: 600px; margin: 0 auto; }
+    
     .header { padding: 20px 16px; background: #fff; border-radius: 12px 12px 0 0; }
     .header h1 { font-size: 24px; font-weight: 700; color: #1a1a1a; }
     .header .date { font-size: 13px; color: #999; margin-top: 4px; }
+    
     .hot-box { background: #fff; padding: 16px; border-radius: 12px; margin-bottom: 12px; border: 1px solid #e8e8e8; }
     .hot-box .title { font-size: 15px; font-weight: 700; color: #e74c3c; margin-bottom: 12px; }
     .hot-box .item { padding: 8px 0; border-bottom: 1px solid #f0f0f0; font-size: 14px; }
     .hot-box .item:last-child { border-bottom: none; }
+    
     .sec { margin-bottom: 12px; }
-    .sec-title { font-size: 15px; font-weight: 600; color: #1a1a1a; padding: 12px 16px; background: #fff; border-radius: 12px 12px 0 0; display: flex; align-items: center; }
+    .sec-title { 
+      font-size: 15px; 
+      font-weight: 600; 
+      color: #1a1a1a; 
+      padding: 12px 16px; 
+      background: #fff; 
+      border-radius: 12px 12px 0 0;
+      display: flex;
+      align-items: center;
+    }
     .sec-title::before { content: ""; width: 3px; height: 16px; background: #ff6b6b; margin-right: 10px; border-radius: 2px; }
     .sec-title.blue::before { background: #4299e1; }
+    
     .sec-list { background: #fff; border-radius: 0 0 12px 12px; padding: 4px 0; }
     .sec-list .item { padding: 12px 16px; border-bottom: 1px solid #f5f5f5; }
     .sec-list .item:last-child { border-bottom: none; }
@@ -26,7 +45,10 @@
     .sec-list .desc { font-size: 13px; color: #666; margin-bottom: 6px; line-height: 1.5; }
     .sec-list .meta { font-size: 12px; color: #999; }
     .sec-list .link { font-size: 12px; color: #0052d9; margin-top: 4px; }
+    .sec-list .link a { color: #0052d9; text-decoration: none; }
+    
     .footer { text-align: center; padding: 20px; color: #bbb; font-size: 12px; }
+    
     .insight { background: linear-gradient(135deg, #3498db, #1a5276); border-radius: 12px; padding: 16px; margin-top: 16px; color: #fff; }
     .insight .title { font-size: 14px; font-weight: 700; margin-bottom: 10px; }
     .insight .content { font-size: 13px; line-height: 1.7; opacity: 0.95; }
@@ -35,24 +57,56 @@
 <body>
   <div class="container">
     <div class="header">
-      <h1>🤖 AI行业资讯</h1>
+      </h1>🤖 AI行业资讯</h1>
       <div class="date">2026年3月21日 周五</div>
     </div>
     
     <div class="hot-box">
       <div class="title">📌 今日热点</div>
-      <div class="item">1. Nvidia GTC 2026 发布 Vera Rubin 架构 — 推理性能提升10倍</div>
-      <div class="item">2. Windows 11 移除不必要的 Copilot 按钮</div>
-      <div class="item">3. Meta 用AI替代人工内容审核承包商</div>
+      <div class="item">1. 微软大刀阔斧重组AI部门：Copilot业务整合加大自研模型投入</div>
+      <div class="item">2. OpenAI宣布"三合一"：浏览器+编程+ChatGPT合并</div>
+      <div class="item">3. Nvidia发布NemoClaw：更安全的OpenClaw版本</div>
+      <div class="item">4. 小鹏第二代VLA模型推送：日均试驾量与销量均翻倍</div>
     </div>
 
     <div class="sec">
       <div class="sec-title">🏷️ 国内AI</div>
       <div class="sec-list">
         <div class="item">
-          <div class="title">英伟达GTC大会发布Vera Rubin平台</div>
-          <div class="desc">英伟达发布新一代Vera Rubin架构平台，推理吞吐量比Blackwell系统提升10倍，每token成本降低90%。</div>
-          <div class="meta">来源：VentureBeat</div>
+          <div class="title">小鹏汽车第二代VLA模型推送</div>
+          <div class="desc">面向L4全自动驾驶时代交付的首个版本，全国732家门店已全面开放试驾，3月日均试驾量环比提升一倍。</div>
+          <div class="meta">来源：36氪</div>
+          <div class="link"><a href="https://www.36kr.com/newsflashes">查看原文 →</a></div>
+        </div>
+        <div class="item">
+          <div class="title">宇树科技IPO获受理</div>
+          <div class="desc">上交所受理宇树科技IPO申请，背后站着半个硬科技投资圈。</div>
+          <div class="meta">来源：虎嗅</div>
+          <div class="link"><a href="https://www.huxiu.com">查看原文 →</a></div>
+        </div>
+        <div class="item">
+          <div class="title">马斯克点名Kimi K2.5</div>
+          <div class="desc">编程工具Cursor发布Composer 2，基于Kimi K2.5微调，一周内再次点名Kimi。</div>
+          <div class="meta">来源：36氪</div>
+          <div class="link"><a href="https://www.36kr.com/newsflashes">查看原文 →</a></div>
+        </div>
+        <div class="item">
+          <div class="title">"章鱼动力"获近5000万美元首轮融资</div>
+          <div class="desc">专注物理AGI领域，由地平线、高瓴创投、小米战投等联合投资。</div>
+          <div class="meta">来源：36氪</div>
+          <div class="link"><a href="https://www.36kr.com/newsflashes">查看原文 →</a></div>
+        </div>
+        <div class="item">
+          <div class="title">字节跳动发布OpenViking实战教程</div>
+          <div class="desc">展示多仓库代码语义检索方案，为开发者提供实战参考。</div>
+          <div class="meta">来源：InfoQ</div>
+          <div class="link"><a href="https://www.infoq.cn/">查看原文 →</a></div>
+        </div>
+        <div class="item">
+          <div class="title">腾讯AI转型引关注</div>
+          <div class="desc">AI正从底层改写腾讯的增长逻辑、产品范式与商业基因。</div>
+          <div class="meta">来源：虎嗅</div>
+          <div class="link"><a href="https://www.huxiu.com">查看原文 →</a></div>
         </div>
       </div>
     </div>
@@ -61,39 +115,50 @@
       <div class="sec-title blue">🌍 国外AI</div>
       <div class="sec-list">
         <div class="item">
-          <div class="title">Nvidia发布DGX Station桌面超级计算机</div>
-          <div class="desc">六位数的桌面超级计算机，可在本地运行万亿参数AI模型。</div>
-          <div class="meta">来源：VentureBeat</div>
-        </div>
-        <div class="item">
-          <div class="title">Microsoft发布MAI-Image 2</div>
-          <div class="desc">第二代图像模型，增强逼真感和文字生成功能。</div>
-          <div class="meta">来源：The Verge</div>
-        </div>
-        <div class="item">
-          <div class="title">Signal创始人与Meta合作加密AI</div>
-          <div class="desc">将Confer的隐私技术整合到Meta AI底层。</div>
-          <div class="meta">来源：The Verge</div>
-        </div>
-        <div class="item">
-          <div class="title">Google调整浏览器AI代理团队</div>
-          <div class="desc">应对OpenClaw引发的AI编码代理热潮。</div>
+          <div class="title">Meta开发4款新AI芯片</div>
+          <div class="desc">Meta正在开发4款新芯片来驱动其AI和推荐系统。</div>
           <div class="meta">来源：Wired</div>
+          <div class="link"><a href="https://www.wired.com">查看原文 →</a></div>
         </div>
         <div class="item">
-          <div class="title">Meta用AI替代内容审核承包商</div>
-          <div class="desc">未来几年将减少对第三方供应商的依赖。</div>
+          <div class="title">Nvidia投260亿美元建开源模型</div>
+          <div class="desc">Nvidia将花费260亿美元构建开源AI模型。</div>
+          <div class="meta">来源：Wired</div>
+          <div class="link"><a href="https://www.wired.com">查看原文 →</a></div>
+        </div>
+        <div class="item">
+          <div class="title">Samsung投730亿美元扩张AI芯片</div>
+          <div class="desc">计划2026年增加22%的生产和研发投资，目标超越SK Hynix。</div>
           <div class="meta">来源：The Verge</div>
+          <div class="link"><a href="https://www.theverge.com">查看原文 →</a></div>
+        </div>
+        <div class="item">
+          <div class="title">Google重组浏览器Agent团队</div>
+          <div class="desc">Google正在重组Project Mariner团队以应对OpenClaw热潮。</div>
+          <div class="meta">来源：Wired</div>
+          <div class="link"><a href="https://www.wired.com">查看原文 →</a></div>
+        </div>
+        <div class="item">
+          <div class="title">Signal创始人帮Meta加密AI</div>
+          <div class="desc">Moxie Marlinspike正在与Meta合作加密AI聊天。</div>
+          <div class="meta">来源：The Verge</div>
+          <div class="link"><a href="https://www.theverge.com">查看原文 →</a></div>
+        </div>
+        <div class="item">
+          <div class="title">Alexa Plus英国发布</div>
+          <div class="desc">亚马逊AI助手升级版首次在欧洲推出，Prime用户免费。</div>
+          <div class="meta">来源：The Verge</div>
+          <div class="link"><a href="https://www.theverge.com">查看原文 →</a></div>
         </div>
       </div>
     </div>
 
     <div class="insight">
       <div class="title">💡 今日洞察</div>
-      <div class="content">Nvidia GTC 2026成为本周AI行业焦点，Vera Rubin平台和DGX Station的发布标志着AI基础设施的重大升级。Vera Rubin的10倍推理性能提升和90%成本降低将为AI应用带来新的可能性。同时，Meta宣布用AI替代人工内容审核承包商，预示着AI agents正在加速进入企业实际应用场景。</div>
+      <div class="content">过去24小时AI行业呈现三大趋势：其一，中国AI技术获得国际认可，Kimi K2.5被Cursor采用并获马斯克点名；其二，AI投资热度不减，章鱼动力获5000万美元融资；其三，AI应用落地加速，小鹏VLA模型推动销量翻倍、Meta用AI替代人工审核。AI行业正处于技术突破与应用落地并行的关键阶段。</div>
     </div>
 
-    <div class="footer">来源：The Verge、Wired、VentureBeat、机器之心等</div>
+    <div class="footer">来源：36氪、虎嗅、机器之心、InfoQ、The Verge、Wired等</div>
   </div>
 </body>
 </html>
