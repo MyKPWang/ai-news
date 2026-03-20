@@ -1,510 +1,282 @@
 <!DOCTYPE html>
 <html lang="zh-CN">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>AI资讯早报 - 2026年3月21日</title>
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-        body {
-            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            min-height: 100vh;
-            padding: 20px;
-        }
-        .container {
-            max-width: 900px;
-            margin: 0 auto;
-            background: #fff;
-            border-radius: 16px;
-            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
-            overflow: hidden;
-        }
-        .header {
-            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
-            color: white;
-            padding: 40px 30px;
-            text-align: center;
-        }
-        .header h1 {
-            font-size: 32px;
-            margin-bottom: 10px;
-        }
-        .header .date {
-            font-size: 16px;
-            opacity: 0.8;
-        }
-        .section {
-            padding: 20px 25px;
-            border-bottom: 1px solid #f5f5f5;
-        }
-        .section:last-child {
-            border-bottom: none;
-        }
-        .section-title {
-            font-size: 18px;
-            font-weight: 600;
-            margin-bottom: 12px;
-            display: flex;
-            align-items: center;
-            gap: 8px;
-        }
-        .hot-topics {
-            background: linear-gradient(135deg, #e74c3c, #c0392b);
-            color: white;
-            padding: 15px 20px;
-        }
-        .hot-topics .section-title {
-            color: white;
-            font-size: 16px;
-        }
-        .hot-topics .news-item {
-            background: rgba(255,255,255,0.15);
-            padding: 12px;
-            border-radius: 8px;
-            margin-bottom: 8px;
-        }
-        .hot-topics .news-item:last-child {
-            margin-bottom: 0;
-        }
-        .hot-topics .news-title {
-            color: white;
-            font-size: 15px;
-        }
-        .hot-topics .news-desc {
-            color: rgba(255,255,255,0.9);
-            font-size: 13px;
-        }
-        .cn-ai {
-            border-left: 4px solid #e74c3c;
-        }
-        .cn-ai .section-title {
-            color: #e74c3c;
-        }
-        .global-ai {
-            border-left: 4px solid #3498db;
-        }
-        .global-ai .section-title {
-            color: #3498db;
-        }
-        .hardware {
-            border-left: 4px solid #9b59b6;
-        }
-        .hardware .section-title {
-            color: #9b59b6;
-        }
-        .tech-other {
-            border-left: 4px solid #f39c12;
-        }
-        .tech-other .section-title {
-            color: #f39c12;
-        }
-        .paper {
-            border-left: 4px solid #7f8c8d;
-        }
-        .paper .section-title {
-            color: #7f8c8d;
-        }
-        .insight {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            color: white;
-        }
-        .insight .section-title {
-            color: white;
-        }
-        .news-item {
-            padding: 10px 0;
-            border-bottom: 1px solid #f5f5f5;
-        }
-        .news-item:last-child {
-            border-bottom: none;
-        }
-        .news-item img {
-            display: none;
-        }
-        .news-content {
-            flex: 1;
-        }
-        .news-title {
-            font-size: 14px;
-            font-weight: 500;
-            color: #333;
-            margin-bottom: 4px;
-            line-height: 1.4;
-        }
-        .news-title a {
-            color: inherit;
-            text-decoration: none;
-        }
-        .news-title a:hover {
-            color: #e74c3c;
-        }
-        .news-desc {
-            font-size: 12px;
-            color: #888;
-            line-height: 1.4;
-            display: none;
-        }
-        .news-link {
-            font-size: 13px;
-            color: #667eea;
-            margin-top: 8px;
-        }
-        .news-link a {
-            color: inherit;
-        }
-        .tag {
-            display: inline-block;
-            padding: 2px 8px;
-            border-radius: 4px;
-            font-size: 12px;
-            margin-right: 8px;
-        }
-        .tag-cn {
-            background: #ffebee;
-            color: #c62828;
-        }
-        .tag-global {
-            background: #e3f2fd;
-            color: #1565c0;
-        }
-        .tag-hot {
-            background: rgba(255,255,255,0.2);
-            color: white;
-        }
-        .footer {
-            background: #f8f9fa;
-            padding: 20px;
-            text-align: center;
-            color: #666;
-            font-size: 14px;
-        }
-    </style>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>2026年3月20日 AI行业资讯</title>
+  <style>
+    * { box-sizing: border-box; }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", "PingFang SC", sans-serif;
+      background: #f5f5f5;
+      color: #1a1a1a;
+      line-height: 1.7;
+      margin: 0;
+      padding: 12px;
+    }
+    .container { max-width: 600px; margin: 0 auto; }
+    .top-bar { background: #fff; padding: 20px 16px; border-radius: 12px; margin-bottom: 16px; }
+    .date { font-size: 13px; color: #86909c; margin-bottom: 6px; }
+    h1 { font-size: 24px; font-weight: 700; margin: 0; }
+    
+    .hot-list { background: #fff; border-radius: 12px; padding: 12px 16px; margin-bottom: 16px; }
+    .section-title { font-size: 15px; font-weight: 700; margin-bottom: 8px; }
+    .hot-list li { font-size: 14px; padding: 6px 0; border-bottom: 1px solid #f0f0f0; }
+    .hot-list li:last-child { border-bottom: none; }
+    .num { color: #0052d9; font-weight: 600; margin-right: 8px; }
+    
+    .category-title { font-size: 18px; font-weight: 700; margin: 24px 0 12px 4px; padding-left: 12px; border-left: 4px solid #0052d9; }
+    .category-title.red { border-left-color: #ff4d4f; }
+    .category-title.orange { border-left-color: #ff9500; }
+    
+    .news-card { background: #fff; border-radius: 12px; margin-bottom: 12px; overflow: hidden; }
+    .card-header { padding: 16px 16px 0 16px; }
+    .news-title { font-size: 17px; font-weight: 700; color: #0052d9; margin: 0; line-height: 1.4; }
+    .card-body { padding: 12px 16px 16px; }
+    .news-meta { font-size: 12px; color: #86909c; margin-bottom: 8px; }
+    .news-content { font-size: 14px; color: #4a4a4a; }
+    .highlight-num { color: #0052d9; font-weight: 600; }
+    .card-footer { padding: 0 16px 16px; }
+    .news-link { color: #0052d9; text-decoration: none; font-size: 13px; }
+    .news-link::after { content: " →"; }
+    
+    .simple-card { background: #fff; border-radius: 12px; padding: 14px 16px; margin-bottom: 10px; }
+    .simple-card .news-title { font-size: 15px; color: #1a1a1a; font-weight: 600; }
+    .simple-card .news-content { font-size: 13px; color: #666; margin-top: 4px; }
+    .simple-card .news-link { color: #0052d9; text-decoration: none; font-size: 13px; display: inline-block; margin-top: 6px; }
+    
+    .insight { background: linear-gradient(135deg, #0052d9, #0039a8); border-radius: 12px; padding: 20px; margin-top: 24px; color: #fff; }
+    .insight h3 { font-size: 16px; margin: 0 0 12px 0; }
+    .insight p { font-size: 14px; line-height: 1.8; margin: 0; opacity: 0.95; }
+    
+    .quote { background: #f0f7ff; border-left: 3px solid #0052d9; padding: 8px; margin: 8px 16px; border-radius: 4px; }
+    .quote-text { font-size: 13px; color: #333; font-style: italic; }
+    .quote-author { font-size: 11px; color: #666; margin-top: 4px; }
+    
+    .sources { text-align: center; color: #86909c; font-size: 12px; padding: 20px; }
+  </style>
 </head>
 <body>
-    <div class="container">
-        <div class="header">
-            <h1>🐲 AI资讯早报</h1>
-            <p class="date">2026年3月21日 星期六</p>
-        </div>
-
-        <!-- 今日热点 -->
-        <div class="section hot-topics">
-            <div class="section-title">🔥 今日热点</div>
-            
-            <div class="news-item">
-                <div class="news-content">
-                    <div class="news-title">
-                        <span class="tag tag-hot">重磅</span>
-                        <a href="https://www.36kr.com/newsflashes/3731234623914242" target="_blank">马斯克称Cursor新模型基于Kimi K2.5微调 一周内再次点名月之暗面</a>
-                    </div>
-                    <div class="news-desc">编程工具Cursor发布自研前沿编码模型Composer 2，因在测评中超过Claude Opus 4.6并主打性价比引发行业广泛关注。很快有开发者发现Composer 2是基于Kimi K2.5微调而来，马斯克也在社交媒体确认"是的，这就是Kimi K2.5"。</div>
-                    <div class="news-link"><a href="https://www.36kr.com/newsflashes/3731234623914242" target="_blank">36氪 →</a></div>
-                </div>
-            </div>
-
-            <div class="news-item">
-                <div class="news-content">
-                    <div class="news-title">
-                        <span class="tag tag-hot">大厂</span>
-                        <a href="https://www.huxiu.com/article/4843997.html" target="_blank">微软大刀阔斧重组AI部门 优先考虑编码和企业用户</a>
-                    </div>
-                    <div class="news-desc">据WSJ报道，OpenAI CEO应用负责人Fiji Simo告诉员工，公司将优先考虑编码和企业用户，削减对Sora、浏览器Atlas和硬件设备等项目的投入。微软也在进行AI部门重组，整合资源聚焦核心业务。</div>
-                    <div class="news-link"><a href="https://www.huxiu.com/article/4843997.html" target="_blank">虎嗅 →</a></div>
-                </div>
-            </div>
-
-            <div class="news-item">
-                <div class="news-content">
-                    <div class="news-title">
-                        <span class="tag tag-hot">融资</span>
-                        <a href="https://www.36kr.com/newsflashes/3731239890731264" target="_blank">专注物理AGI领域 "章鱼动力"获近5000万美元首轮融资</a>
-                    </div>
-                    <div class="news-desc">专注物理AGI领域的"章鱼动力"(SynapX)完成近5000万美元首轮融资，由地平线、高瓴创投、小米战投、顺为资本、线性资本五大顶级机构联合投资。资金将投入核心技术与产品研发、全模态数据体系搭建、全球顶尖人才引进。</div>
-                    <div class="news-link"><a href="https://www.36kr.com/newsflashes/3731239890731264" target="_blank">36氪 →</a></div>
-                </div>
-            </div>
-
-            <div class="news-item">
-                <div class="news-content">
-                    <div class="news-title">
-                        <span class="tag tag-hot">IPO</span>
-                        <a href="https://www.huxiu.com/article/4844066.html" target="_blank">上交所受理宇树科技IPO申请 科创板迎新</a>
-                    </div>
-                    <div class="news-desc">上交所受理宇树科技IPO申请，四足机器人和人形机器人厂商宇树科技科创板上市迈出关键一步。宇树科技是国内机器人领域的明星企业此前已完成多轮融资。</div>
-                    <div class="news-link"><a href="https://www.huxiu.com/article/4844066.html" target="_blank">虎嗅 →</a></div>
-                </div>
-            </div>
-
-            <div class="news-item">
-                <div class="news-content">
-                    <div class="news-title">
-                        <span class="tag tag-hot">车圈</span>
-                        <a href="https://www.36kr.com/newsflashes/3731251967541252" target="_blank">小鹏汽车：第二代VLA模型推送 日均试驾量与Ultra车型销量翻倍</a>
-                    </div>
-                    <div class="news-desc">小鹏汽车CEO何小鹏表示，第二代VLA模型已开始向用户陆续推送，这是面向L4全自动驾驶时代交付的首个版本。当前小鹏全国732家门店已全面开放第二代VLA试驾，3月日均试驾量环比提升一倍，Ultra及Ultra SE车型销量占比提升超过一倍。</div>
-                    <div class="news-link"><a href="https://www.36kr.com/newsflashes/3731251967541252" target="_blank">36氪 →</a></div>
-                </div>
-            </div>
-        </div>
-
-        <!-- 国内AI咨询 -->
-        <div class="section cn-ai">
-            <div class="section-title">🏷️ 国内AI咨询</div>
-            
-            <div class="news-item">
-                <div class="news-content">
-                    <div class="news-title">
-                        <span class="tag tag-cn">大厂</span>
-                        <a href="https://www.huxiu.com/article/4842068.html" target="_blank">腾讯走到命运拐点了 AI正从底层改写增长逻辑</a>
-                    </div>
-                    <div class="news-desc">AI正从底层改写腾讯的增长逻辑、产品范式与商业基因。腾讯在AI领域的布局正在加速，大模型和应用层面的动作频繁。</div>
-                    <div class="news-link"><a href="https://www.huxiu.com/article/4842068.html" target="_blank">虎嗅 →</a></div>
-                </div>
-            </div>
-
-            <div class="news-item">
-                <div class="news-content">
-                    <div class="news-title">
-                        <span class="tag tag-cn">芯片</span>
-                        <a href="https://www.huxiu.com/article/4844058.html" target="_blank">争做"英伟达平替" 地平线悬了吗？</a>
-                    </div>
-                    <div class="news-desc">国产AI芯片企业地平线正在努力成为"英伟达平替"，但在激烈的市场竞争中面临挑战。地平线的产品和战略走向引发行业关注。</div>
-                    <div class="news-link"><a href="https://www.huxiu.com/article/4844058.html" target="_blank">虎嗅 →</a></div>
-                </div>
-            </div>
-
-            <div class="news-item">
-                <div class="news-content">
-                    <div class="news-title">
-                        <span class="tag tag-cn">应用</span>
-                        <a href="https://www.huxiu.com/article/4844048.html" target="_word">Token吞金兽发力 BAT做出了"违背祖训"的决定</a>
-                    </div>
-                    <div class="news-desc">大厂Token成本压力下，BAT等互联网公司做出战略调整，在AI基础设施和应用层面进行更大胆的投入和改革。</div>
-                    <div class="news-link"><a href="https://www.huxiu.com/article/4844048.html" target="_blank">虎嗅 →</a></div>
-                </div>
-            </div>
-
-            <div class="news-item">
-                <div class="news-content">
-                    <div class="news-title">
-                        <span class="tag tag-cn">机器人</span>
-                        <a href="https://www.huxiu.com/article/4843968.html" target="_blank">Figure在Helix里加入System0 意味着什么？</a>
-                    </div>
-                    <div class="news-desc">人形机器人公司Figure在Helix产品中加入System0，引发行业对机器人智能系统发展的讨论。</div>
-                    <div class="news-link"><a href="https://www.huxiu.com/article/4843968.html" target="_blank">虎嗅 →</a></div>
-                </div>
-            </div>
-
-            <div class="news-item">
-                <div class="news-content">
-                    <div class="news-title">
-                        <span class="tag tag-cn">观点</span>
-                        <a href="https://www.huxiu.com/article/4843961.html" target="_blank">AI是如何让老板裁掉你的？</a>
-                    </div>
-                    <div class="news-desc">随着AI技术在企业中的应用深入，越来越多的工作岗位面临自动化替代。探讨AI对就业市场的影响。</div>
-                    <div class="news-link"><a href="https://www.huxiu.com/article/4843961.html" target="_blank">虎嗅 →</a></div>
-                </div>
-            </div>
-        </div>
-
-        <!-- 国外AI咨询 -->
-        <div class="section global-ai">
-            <div class="section-title">🌍 国外AI咨询</div>
-            
-            <div class="news-item">
-                <div class="news-content">
-                    <div class="news-title">
-                        <span class="tag tag-global">Meta</span>
-                        <a href="https://www.theverge.com/ai" target="_blank">Meta宣布AImoderation系统将取代外包审核人员</a>
-                    </div>
-                    <div class="news-desc">Meta宣布将广泛部署AI支持助手，并表示将"减少对第三方供应商"的依赖。内容审核工作将更多由AI系统来完成。</div>
-                    <div class="news-link"><a href="https://www.theverge.com/ai" target="_blank">The Verge →</a></div>
-                </div>
-            </div>
-
-            <div class="news-item">
-                <div class="news-content">
-                    <div class="news-title">
-                        <span class="tag tag-global">Samsung</span>
-                        <a href="https://www.theverge.com/ai" target="_blank">Samsung计划投资730亿美元扩张AI芯片产能</a>
-                    </div>
-                    <div class="news-desc">三星计划2026年增加22%的生产和研发投资，总额达730亿美元，旨在超越SK海力士成为Nvidia最主要的内存供应商。Co-CEO称agentic AI需求正在推动订单激增。</div>
-                    <div class="news-link"><a href="https://www.theverge.com/ai" target="_blank">The Verge →</a></div>
-                </div>
-            </div>
-
-            <div class="news-item">
-                <div class="news-content">
-                    <div class="news-title">
-                        <span class="tag tag-global">Google</span>
-                        <a href="https://www.theverge.com/ai" target="_blank">Google正在测试macOS版Gemini应用</a>
-                    </div>
-                    <div class="news-desc">据报道Google正在测试macOS版Gemini应用，进一步扩大其AI助手在各平台的覆盖范围。</div>
-                    <div class="news-link"><a href="https://www.theverge.com/ai" target="_blank">The Verge →</a></div>
-                </div>
-            </div>
-
-            <div class="news-item">
-                <div class="news-content">
-                    <div class="news-title">
-                        <span class="tag tag-global">Anthropic</span>
-                        <a href="https://www.wired.com/tag/ai/" target="_blank">美国国防部回应Anthropic诉讼：无法信任其战争系统</a>
-                    </div>
-                    <div class="news-desc">美国国防部在回应Anthropic诉讼时表示，无法信任Anthropic的战争系统技术。Anthropic此前因"供应链风险" designation起诉美国政府。</div>
-                    <div class="news-link"><a href="https://www.wired.com/tag/ai/" target="_blank">WIRED →</a></div>
-                </div>
-            </div>
-
-            <div class="news-item">
-                <div class="news-content">
-                    <div class="news-title">
-                        <span class="tag tag-global">Nvidia</span>
-                        <a href="https://www.theverge.com/ai" target="_blank">Nvidia推出NemoClaw 提供更安全的AI代理平台</a>
-                    </div>
-                    <div class="news-desc">Nvidia在GTC 2026大会上宣布推出NemoClaw，这是OpenClaw的更安全版本，通过隔离沙箱环境为自主AI代理提供隐私和安全保护。</div>
-                    <div class="news-link"><a href="https://www.theverge.com/ai" target="_blank">The Verge →</a></div>
-                </div>
-            </div>
-        </div>
-
-        <!-- 智能硬件 -->
-        <div class="section hardware">
-            <div class="section-title">🔧 智能硬件</div>
-            
-            <div class="news-item">
-                <div class="news-content">
-                    <div class="news-title">
-                        <span class="tag tag-global">Alexa</span>
-                        <a href="https://www.theverge.com/ai" target="_blank">Alexa AI升级版登陆英国 首批欧洲用户</a>
-                    </div>
-                    <div class="news-desc">Amazon的Alexa Plus AI助手正式登陆英国，这是首次在欧洲推出。该服务早期免费，之后月费19.99英镑，Prime会员免费。Amazon表示更新会"感觉是真正的英国风格"。</div>
-                    <div class="news-link"><a href="https://www.theverge.com/ai" target="_blank">The Verge →</a></div>
-                </div>
-            </div>
-
-            <div class="news-item">
-                <div class="news-content">
-                    <div class="news-title">
-                        <span class="tag tag-global">Meta</span>
-                        <a href="https://www.theverge.com/ai" target="_blank">Meta纽约第五大道门店成为永久旗舰店</a>
-                    </div>
-                    <div class="news-desc">Meta宣布其位于曼哈顿第五大道的Tardis蓝色智能眼镜店成为永久旗舰店，将继续销售AI智能眼镜和Meta Quest头显。</div>
-                    <div class="news-link"><a href="https://www.theverge.com/ai" target="_blank">The Verge →</a></div>
-                </div>
-            </div>
-
-            <div class="news-item">
-                <div class="news-content">
-                    <div class="news-title">
-                        <span class="tag tag-global">Google</span>
-                        <a href="https://www.theverge.com/ai" target="_blank">Google地图更新 Gemini赋能的"Ask Maps"功能</a>
-                    </div>
-                    <div class="news-desc">Google地图引入新的Gemini驱动的"Ask Maps"功能，让用户可以用自然语言与地图交互，获得更智能的导航和地点推荐。</div>
-                    <div class="news-link"><a href="https://www.theverge.com/ai" target="_blank">The Verge →</a></div>
-                </div>
-            </div>
-        </div>
-
-        <!-- 其他科技资讯 -->
-        <div class="section tech-other">
-            <div class="section-title">📱 其他科技资讯</div>
-            
-            <div class="news-item">
-                <div class="news-content">
-                    <div class="news-title">
-                        <span class="tag tag-global">商业</span>
-                        <a href="https://www.huxiu.com/article/4844007.html" target="_blank">沙特游戏集团超60亿美元收购沐瞳 字节游戏"变小"</a>
-                    </div>
-                    <div class="news-desc">Savvy Group斥资60+亿美元正式收购沐瞳，字节跳动曾以40亿美元买来的游戏业务出售。沐瞳科技专注于移动游戏，曾推出《无尽对决》等热门产品。</div>
-                    <div class="news-link"><a href="https://www.huxiu.com/article/4844007.html" target="_blank">虎嗅 →</a></div>
-                </div>
-            </div>
-
-            <div class="news-item">
-                <div class="news-content">
-                    <div class="news-title">
-                        <span class="tag tag-cn">苹果</span>
-                        <a href="https://www.36kr.com/newsflashes/3731246006665223" target="_blank">苹果CEO库克来华：中国对我们来说依旧是最重要的伙伴</a>
-                    </div>
-                    <div class="news-desc">中国贸促会会长任鸿斌会见苹果公司CEO蒂姆·库克。库克表示中国依旧是最重要的供应链合作伙伴，还会继续来中国。</div>
-                    <div class="news-link"><a href="https://www.36kr.com/newsflashes/3731246006665223" target="_blank">36氪 →</a></div>
-                </div>
-            </div>
-
-            <div class="news-item">
-                <div class="news-content">
-                    <div class="news-title">
-                        <span class="tag tag-global">光伏</span>
-                        <a href="https://www.huxiu.com/article/4844045.html" target="_blank">特斯拉计划采购中国光伏设备 企业回应：确有此事</a>
-                    </div>
-                    <div class="news-desc">特斯拉计划采购中国光伏设备的消息得到企业确认，中国光伏产品在全球市场具有竞争力。</div>
-                    <div class="news-link"><a href="https://www.huxiu.com/article/4844045.html" target="_blank">虎嗅 →</a></div>
-                </div>
-            </div>
-        </div>
-
-        <!-- 论文技术进展 -->
-        <div class="section paper">
-            <div class="section-title">📚 论文技术进展</div>
-            
-            <div class="news-item">
-                <div class="news-content">
-                    <div class="news-title">
-                        <span class="tag tag-global">ArXiv</span>
-                        <a href="https://arxiv.org/list/cs.AI/recent" target="_blank">ArXiv AI论文更新：今日新增228篇</a>
-                    </div>
-                    <div class="news-desc">ArXiv CS.AI分类今日更新228篇论文，涵盖机器学习、自然语言处理、计算机视觉、强化学习等多个AI子领域。</div>
-                    <div class="news-link"><a href="https://arxiv.org/list/cs.AI/recent" target="_blank">ArXiv →</a></div>
-                </div>
-            </div>
-
-            <div class="news-item">
-                <div class="news-content">
-                    <div class="news-title">
-                        <span class="tag tag-global">Nvidia</span>
-                        <a href="https://www.theverge.com/ai" target="_blank">Nvidia GTC 2026: Vera Rubin架构与太空数据中心计划</a>
-                    </div>
-                    <div class="news-desc">Nvidia在GTC 2026大会上发布Vera Rubin架构算力平台，并宣布计划在太空建立数据中心Vera Rubin Space 1，探索AI计算的新边界。</div>
-                    <div class="news-link"><a href="https://www.theverge.com/ai" target="_blank">The Verge →</a></div>
-                </div>
-            </div>
-        </div>
-
-        <!-- 今日洞察 -->
-        <div class="section insight">
-            <div class="section-title">💡 今日洞察</div>
-            
-            <div class="news-item" style="border-bottom: 1px solid rgba(255,255,255,0.2);">
-                <div class="news-content">
-                    <div class="news-title">Kimi K2.5再次出圈：AI编程领域的"中国力量"</div>
-                    <div class="news-desc">一周内两次被马斯克点名，Cursor基于Kimi K2.5微调的Composer 2模型在编码测评中超越Claude Opus 4.6。这标志着国产大模型在AI编程细分领域取得了实质性突破，开始获得国际开发者社区的认可。月之暗面的Kimi系列正在从文本处理向代码生成领域扩展。</div>
-                </div>
-            </div>
-
-            <div class="news-item" style="border-bottom: 1px solid rgba(255,255,255,0.2);">
-                <div class="news-content">
-                    <div class="news-title">AI Agent整合加速：从"多线作战"到"聚焦核心"</div>
-                    <div class="news-desc">OpenAI削减Sora、浏览器Atlas和硬件项目投入，微软重组AI部门——大厂正在从广泛的AI探索转向更务实的商业化路径。编码和企业应用成为优先方向，反映出AI技术落地正在从"炫技"转向"生产力"。</div>
-                </div>
-            </div>
-
-            <div class="news-item">
-                <div class="news-content">
-                    <div class="news-title">物理AGI受资本青睐：章鱼动力获5000万美元融资</div>
-                    <div class="news-desc">专注物理AGI的章鱼动力获得近5000万美元首轮融资，由地平线、高瓴、小米等机构投资。区别于纯软件AGI，物理AGI强调与物理世界的交互能力，包括机器人、自动驾驶等领域。这表明资本市场对具身智能的看好。</div>
-                </div>
-            </div>
-        </div>
-
-        <div class="footer">
-            <p>📡 每日AI资讯精选 | 由卧龙整理</p>
-            <p style="margin-top: 8px; font-size: 12px; opacity: 0.7;">来源：36氪、虎嗅、The Verge、WIRED、ArXiv等</p>
-        </div>
+  <div class="container">
+    <div class="top-bar">
+      <div class="date">2026年3月21日</div>
+      <h1>AI行业资讯</h1>
     </div>
+
+    <!-- 今日热点 -->
+    <div class="hot-list">
+      <div class="section-title">今日热点</div>
+      <ul>
+        <li><span class="num">1</span>钉钉发布AI钉钉2.0"悟空"，全球首个企业级AI原生工作平台</li>
+        <li><span class="num">2</span>OpenClaw团队版Clawith宣布开源</li>
+        <li><span class="num">3</span>阿里CEO吴泳铭：平头哥不排除IPO，目前暂无明确时间表</li>
+        <li><span class="num">4</span>英伟达CEO黄仁勋呼吁避免AI恐慌，称Anthropic收入2030年或超1万亿美元</li>
+        <li><span class="num">5</span>小米汽车新一代SU7正式上市，售价21.99万-30.39万</li>
+        <li><span class="num">6</span>LibTV实测：人类用户再也不是产品的全部</li>
+      </ul>
+    </div>
+
+    <!-- 国内AI咨询 -->
+    <div class="category-title red">🤖 国内AI咨询</div>
+
+    <div class="news-card">
+      <div class="card-header"><h3 class="news-title">钉钉发布AI钉钉2.0"悟空"，全球首个企业级AI原生工作平台</h3></div>
+      <div class="card-body">
+        <div class="news-meta">来源：品玩</div>
+        <div class="news-content">3月17日，钉钉发布悟空平台，被称为全球首个企业级AI原生工作平台。DingTalk CLI将钉钉全部企业级能力重构为AI可调用的命令行指令。悟空可帮助企业自动分析竞品、自动发帖获客、自动回复咨询等。钉钉变成悟空，悟空还是那个钉钉。</div>
+        <div class="quote">
+          <div class="quote-text">"一个toB的产品平台，却和最火的C端开源项目想到一块去了。"</div>
+          <div class="quote-author">— 品玩</div>
+        </div>
+      </div>
+      <div class="card-footer"><a class="news-link" href="https://www.pingwest.com/a/312194">查看原文</a></div>
+    </div>
+
+    <div class="news-card">
+      <div class="card-header"><h3 class="news-title">阿里CEO吴泳铭：平头哥不排除IPO，目前暂无明确时间表</h3></div>
+      <div class="card-body">
+        <div class="news-meta">来源：钛媒体</div>
+        <div class="news-content">在阿里集团业绩电话会上，CEO吴泳铭表示，未来三到五年全球算力都会处于非常紧缺的状态，平头哥的价值不仅在于成本优化，更是算力的供应保障。平头哥GPU芯片已累计规模化交付47万片。</div>
+      </div>
+      <div class="card-footer"><a class="news-link" href="https://www.tmtpost.com/nictation/7921730.html">查看原文</a></div>
+    </div>
+
+    <div class="news-card">
+      <div class="card-header"><h3 class="news-title">OpenClaw团队版Clawith宣布开源</h3></div>
+      <div class="card-body">
+        <div class="news-meta">来源：钛媒体</div>
+        <div class="news-content">多智能体协作平台"龙虾团队版"（Clawith）宣布开源。与传统单体AI不同，Clawith为每位AI智能体赋予持久身份、长期记忆和专属工作区，将其打造成真正的"数字员工"。LLM推理完全通过外部API完成，聚焦企业级AI工作流的调度与管理。</div>
+      </div>
+      <div class="card-footer"><a class="news-link" href="https://www.tmtpost.com/nictation/7921874.html">查看原文</a></div>
+    </div>
+
+    <div class="news-card">
+      <div class="card-header"><h3 class="news-title">字节小云雀上线短剧智能体功能，重构影视生产流程</h3></div>
+      <div class="card-body">
+        <div class="news-meta">来源：品玩</div>
+        <div class="news-content">字节小云雀上线短剧智能体功能，将进一步重构影视生产流程。AI视频创作工具LibTV同时发布，节点式画布形态支持接入OpenClaw等Agent，实现自动化创作。</div>
+      </div>
+      <div class="card-footer"><a class="news-link" href="https://www.pingwest.com/w/312275">查看原文</a></div>
+    </div>
+
+    <div class="news-card">
+      <div class="card-header"><h3 class="news-title">飞书推出官方"龙虾"智能体，一键开启专属办公伙伴</h3></div>
+      <div class="card-body">
+        <div class="news-meta">来源：品玩</div>
+        <div class="news-content">飞书推出官方"龙虾"智能体，用户可一键开启专属办公伙伴。继钉钉发布悟空之后，飞书也加入了AI Agent战场。</div>
+      </div>
+      <div class="card-footer"><a class="news-link" href="https://www.pingwest.com/w/312264">查看原文</a></div>
+    </div>
+
+    <div class="news-card">
+      <div class="card-header"><h3 class="news-title">微信安全中心发布AI生成内容治理公告</h3></div>
+      <div class="card-body">
+        <div class="news-meta">来源：钛媒体</div>
+        <div class="news-content">微信安全中心发文称，近期发现黑灰产团伙规模化滥用AI生成内容服务，批量生成含色情、赌博等违规内容的网页并利用平台分享机制传播。平台将依法依规进行处理。</div>
+      </div>
+      <div class="card-footer"><a class="news-link" href="https://www.tmtpost.com/nictation/7921535.html">查看原文</a></div>
+    </div>
+
+    <div class="simple-card">
+      <div class="news-title">微盟ALL in AI营收增长18.9%，调整后净利润转正</div>
+      <div class="news-content">微盟2025年全年营收同比增长18.9%，调整后净利润转正。"不是AI吞噬SaaS，而是SaaS吞噬AI"</div>
+      <a class="news-link" href="https://www.tmtpost.com/7920393.html">查看原文</a>
+    </div>
+
+    <div class="simple-card">
+      <div class="news-title">小米"神秘模型"为何被错认为DeepSeek V4？</div>
+      <div class="news-content">小米AI模型引发业内关注，有观点误认为是DeepSeek V4，实为小米自研模型</div>
+      <a class="news-link" href="https://www.tmtpost.com/7921338.html">查看原文</a>
+    </div>
+
+    <!-- 国外AI咨询 -->
+    <div class="category-title">🌍 国外AI咨询</div>
+
+    <div class="news-card">
+      <div class="card-header"><h3 class="news-title">英伟达CEO黄仁勋：到2030年Anthropic收入或超1万亿美元</h3></div>
+      <div class="card-body">
+        <div class="news-meta">来源：钛媒体</div>
+        <div class="news-content">英伟达CEO黄仁勋呼吁科技业领袖避免散布AI恐慌情绪。他表示，到2030年Anthropic收入或超1万亿美元。马斯克称SpaceX AI和特斯拉预计将继续大规模订购英伟达芯片。</div>
+        <div class="quote">
+          <div class="quote-text">"非常欣赏英伟达和黄仁勋，英伟达市值实至名归"</div>
+          <div class="quote-author">— 马斯克</div>
+        </div>
+      </div>
+      <div class="card-footer"><a class="news-link" href="https://www.tmtpost.com/nictation/7922013.html">查看原文</a></div>
+    </div>
+
+    <div class="news-card">
+      <div class="card-header"><h3 class="news-title">Meta AI Moderation系统将取代内容审核承包商</h3></div>
+      <div class="card-body">
+        <div class="news-meta">来源：The Verge</div>
+        <div class="news-content">Meta宣布将广泛部署AI支持助手用于Facebook和Instagram，并表示将"减少对第三方供应商"的依赖。AI系统将承担重复性审核工作，如审核图形内容、处理非法药物销售或诈骗等不断变化策略的领域。</div>
+      </div>
+      <div class="card-footer"><a class="news-link" href="https://www.theverge.com/">查看原文</a></div>
+    </div>
+
+    <div class="news-card">
+      <div class="card-header"><h3 class="news-title">Signal创始人与Meta合作加密AI</h3></div>
+      <div class="card-body">
+        <div class="news-meta">来源：The Verge</div>
+        <div class="news-content">Signal创始人Moxie Marlinspike正在与Meta合作，将Confer的隐私技术整合到Meta AI底层，实现AI对话加密。</div>
+      </div>
+      <div class="card-footer"><a class="news-link" href="https://confer.to/blog/2026/03/encrypted-meta/">查看原文</a></div>
+    </div>
+
+    <div class="news-card">
+      <div class="card-header"><h3 class="news-title">Google测试macOS版Gemini应用</h3></div>
+      <div class="card-body">
+        <div class="news-meta">来源：The Verge</div>
+        <div class="news-content">Google正在测试macOS版Gemini应用，这将使macOS成为继Windows之后又一个获得独立Gemini应用的桌面平台。</div>
+      </div>
+      <div class="card-footer"><a class="news-link" href="https://www.theverge.com/">查看原文</a></div>
+    </div>
+
+    <div class="news-card">
+      <div class="card-header"><h3 class="news-title">Microsoft发布MAI-Image-2图像模型</h3></div>
+      <div class="card-body">
+        <div class="news-meta">来源：The Verge</div>
+        <div class="news-content">Microsoft推出第二代AI图像模型MAI-Image-2，增强了照片级真实感和更可靠的文本生成能力，目前已在Copilot和Bing Image Creator中推出。</div>
+      </div>
+      <div class="card-footer"><a class="news-link" href="https://microsoft.ai/news/introducing-MAI-Image-2/">查看原文</a></div>
+    </div>
+
+    <div class="news-card">
+      <div class="card-header"><h3 class="news-title">亚马逊Alexa+登陆英国</h3></div>
+      <div class="card-body">
+        <div class="news-meta">来源：钛媒体</div>
+        <div class="news-content">亚马逊宣布智能助理Alexa+从3月19日起在英国推出，作为"抢先体验"计划的一部分。Prime会员可免费使用，非Prime用户需支付每月19.99英镑。</div>
+      </div>
+      <div class="card-footer"><a class="news-link" href="https://www.tmtpost.com/nictation/7920920.html">查看原文</a></div>
+    </div>
+
+    <div class="news-card">
+      <div class="card-header"><h3 class="news-title">贝索斯蓝色起源拟部署近5.2万颗AI卫星</h3></div>
+      <div class="card-body">
+        <div class="news-meta">来源：钛媒体</div>
+        <div class="news-content">贝索斯旗下蓝色起源公司计划部署近5.2万颗人工智能卫星，用于提供全球AI服务。这一计划将使蓝色起源成为卫星互联网领域的重要参与者。</div>
+      </div>
+      <div class="card-footer"><a class="news-link" href="https://www.tmtpost.com/nictation/7922007.html">查看原文</a></div>
+    </div>
+
+    <!-- 其他科技资讯 -->
+    <div class="category-title.orange">📱 其他科技资讯</div>
+
+    <div class="news-card">
+      <div class="card-header"><h3 class="news-title">包装纸龙头5.5亿"豪赌"国产GPU芯片</h3></div>
+      <div class="card-body">
+        <div class="news-meta">来源：钛媒体</div>
+        <div class="news-content">大胜达宣布5.5亿元投资国产GPU芯片，这是包装纸龙头企业的战略卡位还是豪赌？引发市场关注。</div>
+      </div>
+      <div class="card-footer"><a class="news-link" href="https://www.tmtpost.com/7921752.html">查看原文</a></div>
+    </div>
+
+    <div class="news-card">
+      <div class="card-header"><h3 class="news-title">中国首个"路空一体"国家级检测基地正式投用</h3></div>
+      <div class="card-body">
+        <div class="news-meta">来源：钛媒体</div>
+        <div class="news-content">中国首个"路空一体"国家级检测基地正式投用，标志着交通领域AI应用迈出新步伐。</div>
+      </div>
+      <div class="card-footer"><a class="news-link" href="https://www.tmtpost.com/nictation/7922011.html">查看原文</a></div>
+    </div>
+
+    <div class="news-card">
+      <div class="card-header"><h3 class="news-title">脑机接口赛道爆发：首款侵入式器械获批</h3></div>
+      <div class="card-body">
+        <div class="news-meta">来源：钛媒体</div>
+        <div class="news-content">历经半个世纪，脑机接口终于进入医疗现实。首款侵入式器械获批，赛道爆发在即，AI主导的全球直播引发关注。</div>
+      </div>
+      <div class="card-footer"><a class="news-link" href="https://www.tmtpost.com/7919693.html">查看原文</a></div>
+    </div>
+
+    <div class="news-card">
+      <div class="card-header"><h3 class="news-title">2026年重大利好：手术机器人分档收费国标出台</h3></div>
+      <div class="card-body">
+        <div class="news-meta">来源：钛媒体</div>
+        <div class="news-content">手术机器人分档收费国标出台，引燃行业。政策明确推动医疗AI发展。</div>
+      </div>
+      <div class="card-footer"><a class="news-link" href="https://www.tmtpost.com/7861689.html">查看原文</a></div>
+    </div>
+
+    <div class="simple-card">
+      <div class="news-title">美国国债突破39万亿美元</div>
+      <div class="news-content">5个月增加1万亿美元，美国国债总额突破历史新高至39万亿美元</div>
+      <a class="news-link" href="https://www.tmtpost.com/nictation/7920396.html">查看原文</a>
+    </div>
+
+    <div class="simple-card">
+      <div class="news-title">闪送2025年盈利根基稳固</div>
+      <div class="news-content">闪送2025年全年营收40亿元，连续三年实现经调整净利润盈利，低空物流打开"空地一体"新增长极</div>
+      <a class="news-link" href="https://www.tmtpost.com/7920945.html">查看原文</a>
+    </div>
+
+    <!-- 今日洞察 -->
+    <div class="insight">
+      <h3>💡 今日洞察</h3>
+      <p><strong>AI Agent战</strong>争全面爆发：钉钉发布悟空、飞书推出龙虾智能体、Clawith开源，B端AI Agent赛道进入战国时代。<br><br><strong>算力持续紧缺</strong>：阿里CEO吴泳铭表示未来3-5年全球算力都将处于紧缺状态，平头哥已累计交付47万片GPU。<br><br><strong>AI应用加速落地</strong>：LibTV实现AI视频创作自动化，从脚本到分镜批量生成；脑机接口首款侵入式器械获批，医疗AI迎来突破。<br><br><strong>监管与安全</strong>：微信安全中心发布AI生成内容治理公告，Meta用AI系统取代人工内容审核承包商。</p>
+    </div>
+
+    <div class="sources">来源：品玩、钛媒体、The Verge | 整理：卧龙</div>
+  </div>
 </body>
 </html>
