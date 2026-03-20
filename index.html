@@ -3,283 +3,230 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>2026年3月20日 AI行业资讯</title>
+  <title>AI行业资讯</title>
   <style>
-    * { box-sizing: border-box; }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
     body {
-      font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", "PingFang SC", sans-serif;
+      font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", "PingFang SC", "Helvetica Neue", Arial, sans-serif;
       background: #f5f5f5;
-      color: #1a1a1a;
-      line-height: 1.7;
-      margin: 0;
-      padding: 12px;
+      color: #333;
+      line-height: 1.6;
+      padding: 16px;
     }
-    .container { max-width: 600px; margin: 0 auto; }
-    .top-bar { background: #fff; padding: 20px 16px; border-radius: 12px; margin-bottom: 16px; }
-    .date { font-size: 13px; color: #86909c; margin-bottom: 6px; }
-    h1 { font-size: 24px; font-weight: 700; margin: 0; }
+    .container { max-width: 640px; margin: 0 auto; }
     
-    .hot-list { background: linear-gradient(135deg, #e74c3c, #c0392b); border-radius: 12px; padding: 14px 16px; margin-bottom: 16px; color: #fff; }
-    .hot-list .section-title { font-size: 16px; font-weight: 700; margin-bottom: 10px; color: #fff; }
-    .hot-list li { font-size: 14px; padding: 6px 0; border-bottom: 1px solid rgba(255,255,255,0.2); color: #fff; }
-    .hot-list li:last-child { border-bottom: none; }
-    .hot-list .num { color: #fff; font-weight: 700; margin-right: 8px; }
-    .hot-list li { font-size: 14px; padding: 6px 0; border-bottom: 1px solid #f0f0f0; }
-    .hot-list li:last-child { border-bottom: none; }
-    .num { color: #0052d9; font-weight: 600; margin-right: 8px; }
+    /* 顶部标题区 */
+    .header { margin-bottom: 16px; }
+    .header h1 { font-size: 22px; font-weight: 700; color: #1a1a1a; margin-bottom: 4px; }
+    .header .date { font-size: 13px; color: #999; }
     
-    .category-title { font-size: 18px; font-weight: 700; margin: 24px 0 12px 4px; padding-left: 12px; border-left: 4px solid #0052d9; }
-    .category-title.red { border-left-color: #ff4d4f; }
-    .category-title.orange { border-left-color: #ff9500; }
+    /* 今日要闻 - 红色背景 */
+    .hot-section { 
+      background: linear-gradient(135deg, #e74c3c, #c0392b);
+      border-radius: 10px;
+      padding: 14px 16px;
+      margin-bottom: 16px;
+      color: #fff;
+    }
+    .hot-section .section-title { 
+      font-size: 15px; 
+      font-weight: 700; 
+      margin-bottom: 10px;
+      color: #fff;
+    }
+    .hot-section .news-item {
+      padding: 8px 0;
+      border-bottom: 1px solid rgba(255,255,255,0.2);
+      font-size: 14px;
+    }
+    .hot-section .news-item:last-child { border-bottom: none; }
+    .hot-section .news-item a { color: #fff; text-decoration: none; }
     
-    .news-card { background: #fff; border-radius: 12px; margin-bottom: 12px; overflow: hidden; }
-    .card-header { padding: 16px 16px 0 16px; }
-    .news-title { font-size: 17px; font-weight: 700; color: #0052d9; margin: 0; line-height: 1.4; }
-    .card-body { padding: 12px 16px 16px; }
-    .news-meta { font-size: 12px; color: #86909c; margin-bottom: 8px; }
-    .news-content { font-size: 14px; color: #4a4a4a; }
-    .highlight-num { color: #0052d9; font-weight: 600; }
-    .card-footer { padding: 0 16px 16px; }
-    .news-link { color: #0052d9; text-decoration: none; font-size: 13px; }
-    .news-link::after { content: " →"; }
+    /* 分类标题 - 红色左边框 */
+    .category-title { 
+      font-size: 17px; 
+      font-weight: 700; 
+      margin: 20px 0 12px 0; 
+      padding-left: 12px; 
+      border-left: 4px solid #e74c3c;
+      color: #1a1a1a;
+    }
+    .category-title.blue { border-left-color: #3498db; }
     
-    .simple-card { background: #fff; border-radius: 12px; padding: 14px 16px; margin-bottom: 10px; }
-    .simple-card .news-title { font-size: 15px; color: #1a1a1a; font-weight: 600; }
-    .simple-card .news-content { font-size: 13px; color: #666; margin-top: 4px; }
-    .simple-card .news-link { color: #0052d9; text-decoration: none; font-size: 13px; display: inline-block; margin-top: 6px; }
+    /* 新闻卡片 */
+    .news-card { 
+      background: #fff; 
+      border-radius: 10px; 
+      padding: 16px; 
+      margin-bottom: 12px;
+      box-shadow: 0 1px 3px rgba(0,0,0,0.08);
+    }
+    .news-card .news-title { 
+      font-size: 16px; 
+      font-weight: 600; 
+      color: #0052d9; 
+      margin-bottom: 6px;
+      line-height: 1.4;
+    }
+    .news-card .news-meta { 
+      font-size: 12px; 
+      color: #999; 
+      margin-bottom: 8px; 
+    }
+    .news-card .news-desc { 
+      font-size: 14px; 
+      color: #666; 
+      line-height: 1.5;
+    }
+    .news-card .news-link { 
+      display: inline-block;
+      margin-top: 10px;
+      font-size: 13px; 
+      color: #0052d9;
+      text-decoration: none;
+    }
+    .news-card .news-link:after { content: " →"; }
     
-    .insight { background: linear-gradient(135deg, #0052d9, #0039a8); border-radius: 12px; padding: 20px; margin-top: 24px; color: #fff; }
-    .insight h3 { font-size: 16px; margin: 0 0 12px 0; }
-    .insight p { font-size: 14px; line-height: 1.8; margin: 0; opacity: 0.95; }
+    /* 引用 */
+    .quote {
+      background: #f8f9fa;
+      border-left: 3px solid #0052d9;
+      padding: 10px 12px;
+      margin: 10px 0;
+      border-radius: 0 6px 6px 0;
+    }
+    .quote-text { font-size: 13px; color: #555; font-style: italic; }
+    .quote-author { font-size: 11px; color: #999; margin-top: 4px; }
     
-    .quote { background: #f0f7ff; border-left: 3px solid #0052d9; padding: 8px; margin: 8px 16px; border-radius: 4px; }
-    .quote-text { font-size: 13px; color: #333; font-style: italic; }
-    .quote-author { font-size: 11px; color: #666; margin-top: 4px; }
+    /* 简单卡片 */
+    .simple-card {
+      background: #fff;
+      border-radius: 10px;
+      padding: 14px 16px;
+      margin-bottom: 10px;
+      box-shadow: 0 1px 3px rgba(0,0,0,0.08);
+    }
+    .simple-card .news-title { font-size: 15px; font-weight: 600; color: #333; }
+    .simple-card .news-desc { font-size: 13px; color: #666; margin-top: 4px; }
+    .simple-card .news-link { font-size: 13px; color: #0052d9; text-decoration: none; }
     
-    .sources { text-align: center; color: #86909c; font-size: 12px; padding: 20px; }
+    /* 大厂动态表格 */
+    .company-table {
+      background: #fff;
+      border-radius: 10px;
+      overflow: hidden;
+      margin-bottom: 16px;
+      box-shadow: 0 1px 3px rgba(0,0,0,0.08);
+    }
+    .company-table table { width: 100%; border-collapse: collapse; }
+    .company-table th { 
+      background: #f8f9fa;
+      padding: 10px 12px;
+      text-align: left;
+      font-size: 13px;
+      font-weight: 600;
+      color: #666;
+      border-bottom: 1px solid #eee;
+    }
+    .company-table td { 
+      padding: 10px 12px;
+      font-size: 13px;
+      color: #333;
+      border-bottom: 1px solid #f5f5f5;
+    }
+    .company-table tr:last-child td { border-bottom: none; }
+    
+    /* 洞察 */
+    .insight {
+      background: linear-gradient(135deg, #3498db, #1a5276);
+      border-radius: 10px;
+      padding: 18px;
+      margin-top: 20px;
+      color: #fff;
+    }
+    .insight .section-title { font-size: 15px; font-weight: 700; margin-bottom: 12px; }
+    .insight p { font-size: 14px; line-height: 1.7; opacity: 0.95; }
+    
+    /* 来源 */
+    .sources { 
+      text-align: center; 
+      color: #999; 
+      font-size: 12px; 
+      padding: 20px; 
+    }
   </style>
 </head>
 <body>
   <div class="container">
-    <div class="top-bar">
-      <div class="date">2026年3月21日</div>
-      <h1>AI行业资讯</h1>
+    <div class="header">
+      <h1>🤖 AI资讯早报</h1>
+      <div class="date">2026年3月21日 周五</div>
     </div>
 
-    <!-- 今日热点 -->
-    <div class="hot-list">
-      <div class="section-title">今日热点</div>
-      <ul>
-        <li><span class="num">1</span>钉钉发布AI钉钉2.0"悟空"，全球首个企业级AI原生工作平台</li>
-        <li><span class="num">2</span>OpenClaw团队版Clawith宣布开源</li>
-        <li><span class="num">3</span>阿里CEO吴泳铭：平头哥不排除IPO，目前暂无明确时间表</li>
-        <li><span class="num">4</span>英伟达CEO黄仁勋呼吁避免AI恐慌，称Anthropic收入2030年或超1万亿美元</li>
-        <li><span class="num">5</span>小米汽车新一代SU7正式上市，售价21.99万-30.39万</li>
-        <li><span class="num">6</span>LibTV实测：人类用户再也不是产品的全部</li>
-      </ul>
+    <!-- 今日要闻 -->
+    <div class="hot-section">
+      <div class="section-title">📌 今日要闻</div>
+      <div class="news-item"><a href="#">1. 马斯克确认Cursor基于Kimi K2.5微调，一周内再次点名月之暗面</a></div>
+      <div class="news-item"><a href="#">2. 微软大刀阔斧重组AI部门，优先编码和企业用户</a></div>
+      <div class="news-item"><a href="#">3. "章鱼动力"获近5000万美元首轮融资，专注物理AGI</a></div>
     </div>
 
-    <!-- 国内AI咨询 -->
-    <div class="category-title red">🤖 国内AI咨询</div>
-
+    <!-- 国内AI -->
+    <div class="category-title">🏷️ 国内AI</div>
+    
     <div class="news-card">
-      <div class="card-header"><h3 class="news-title">钉钉发布AI钉钉2.0"悟空"，全球首个企业级AI原生工作平台</h3></div>
-      <div class="card-body">
-        <div class="news-meta">来源：品玩</div>
-        <div class="news-content">3月17日，钉钉发布悟空平台，被称为全球首个企业级AI原生工作平台。DingTalk CLI将钉钉全部企业级能力重构为AI可调用的命令行指令。悟空可帮助企业自动分析竞品、自动发帖获客、自动回复咨询等。钉钉变成悟空，悟空还是那个钉钉。</div>
-        <div class="quote">
-          <div class="quote-text">"一个toB的产品平台，却和最火的C端开源项目想到一块去了。"</div>
-          <div class="quote-author">— 品玩</div>
-        </div>
-      </div>
-      <div class="card-footer"><a class="news-link" href="https://www.pingwest.com/a/312194">查看原文</a></div>
+      <div class="news-title">腾讯走到命运拐点了</div>
+      <div class="news-meta">来源：虎嗅</div>
+      <div class="news-desc">AI正从底层改写腾讯的增长逻辑、产品范式与商业基因。</div>
     </div>
 
     <div class="news-card">
-      <div class="card-header"><h3 class="news-title">阿里CEO吴泳铭：平头哥不排除IPO，目前暂无明确时间表</h3></div>
-      <div class="card-body">
-        <div class="news-meta">来源：钛媒体</div>
-        <div class="news-content">在阿里集团业绩电话会上，CEO吴泳铭表示，未来三到五年全球算力都会处于非常紧缺的状态，平头哥的价值不仅在于成本优化，更是算力的供应保障。平头哥GPU芯片已累计规模化交付47万片。</div>
-      </div>
-      <div class="card-footer"><a class="news-link" href="https://www.tmtpost.com/nictation/7921730.html">查看原文</a></div>
+      <div class="news-title">地平线争做"英伟达平替"</div>
+      <div class="news-meta">来源：36氪</div>
+      <div class="news-desc">国产AI芯片企业在激烈市场中寻求突破。</div>
+    </div>
+
+    <!-- 国外AI -->
+    <div class="category-title blue">🌍 国外AI</div>
+    
+    <div class="news-card">
+      <div class="news-title">Meta AI审核系统将取代外包人员</div>
+      <div class="news-meta">来源：The Verge</div>
+      <div class="news-desc">Meta宣布将广泛部署AI支持助手，减少对第三方供应商的依赖。</div>
     </div>
 
     <div class="news-card">
-      <div class="card-header"><h3 class="news-title">OpenClaw团队版Clawith宣布开源</h3></div>
-      <div class="card-body">
-        <div class="news-meta">来源：钛媒体</div>
-        <div class="news-content">多智能体协作平台"龙虾团队版"（Clawith）宣布开源。与传统单体AI不同，Clawith为每位AI智能体赋予持久身份、长期记忆和专属工作区，将其打造成真正的"数字员工"。LLM推理完全通过外部API完成，聚焦企业级AI工作流的调度与管理。</div>
-      </div>
-      <div class="card-footer"><a class="news-link" href="https://www.tmtpost.com/nictation/7921874.html">查看原文</a></div>
+      <div class="news-title">Samsung计划730亿美元扩张AI芯片产能</div>
+      <div class="news-meta">来源：Wired</div>
+      <div class="news-desc">2026年增加22%投资，旨在超越SK海力士成为Nvidia最主要的内存供应商。</div>
     </div>
 
-    <div class="news-card">
-      <div class="card-header"><h3 class="news-title">字节小云雀上线短剧智能体功能，重构影视生产流程</h3></div>
-      <div class="card-body">
-        <div class="news-meta">来源：品玩</div>
-        <div class="news-content">字节小云雀上线短剧智能体功能，将进一步重构影视生产流程。AI视频创作工具LibTV同时发布，节点式画布形态支持接入OpenClaw等Agent，实现自动化创作。</div>
-      </div>
-      <div class="card-footer"><a class="news-link" href="https://www.pingwest.com/w/312275">查看原文</a></div>
+    <!-- 大厂动态 -->
+    <div class="category-title">🏢 大厂动态</div>
+    <div class="company-table">
+      <table>
+        <tr><th>公司</th><th>动态</th></tr>
+        <tr><td>Nvidia</td><td>发布Vera Rubin平台、NemoClaw安全版</td></tr>
+        <tr><td>Google</td><td>测试macOS版Gemini应用</td></tr>
+        <tr><td>Meta</td><td>AI审核系统将取代人工</td></tr>
+        <tr><td>Microsoft</td><td>重组AI部门，聚焦核心业务</td></tr>
+      </table>
     </div>
 
-    <div class="news-card">
-      <div class="card-header"><h3 class="news-title">飞书推出官方"龙虾"智能体，一键开启专属办公伙伴</h3></div>
-      <div class="card-body">
-        <div class="news-meta">来源：品玩</div>
-        <div class="news-content">飞书推出官方"龙虾"智能体，用户可一键开启专属办公伙伴。继钉钉发布悟空之后，飞书也加入了AI Agent战场。</div>
-      </div>
-      <div class="card-footer"><a class="news-link" href="https://www.pingwest.com/w/312264">查看原文</a></div>
-    </div>
-
-    <div class="news-card">
-      <div class="card-header"><h3 class="news-title">微信安全中心发布AI生成内容治理公告</h3></div>
-      <div class="card-body">
-        <div class="news-meta">来源：钛媒体</div>
-        <div class="news-content">微信安全中心发文称，近期发现黑灰产团伙规模化滥用AI生成内容服务，批量生成含色情、赌博等违规内容的网页并利用平台分享机制传播。平台将依法依规进行处理。</div>
-      </div>
-      <div class="card-footer"><a class="news-link" href="https://www.tmtpost.com/nictation/7921535.html">查看原文</a></div>
-    </div>
-
+    <!-- 智能硬件 -->
+    <div class="category-title">🔧 智能硬件</div>
     <div class="simple-card">
-      <div class="news-title">微盟ALL in AI营收增长18.9%，调整后净利润转正</div>
-      <div class="news-content">微盟2025年全年营收同比增长18.9%，调整后净利润转正。"不是AI吞噬SaaS，而是SaaS吞噬AI"</div>
-      <a class="news-link" href="https://www.tmtpost.com/7920393.html">查看原文</a>
+      <div class="news-title">Alexa AI升级版登陆英国</div>
+      <div class="news-desc">Amazon的Alexa Plus首次在欧洲推出</div>
     </div>
 
-    <div class="simple-card">
-      <div class="news-title">小米"神秘模型"为何被错认为DeepSeek V4？</div>
-      <div class="news-content">小米AI模型引发业内关注，有观点误认为是DeepSeek V4，实为小米自研模型</div>
-      <a class="news-link" href="https://www.tmtpost.com/7921338.html">查看原文</a>
-    </div>
-
-    <!-- 国外AI咨询 -->
-    <div class="category-title">🌍 国外AI咨询</div>
-
-    <div class="news-card">
-      <div class="card-header"><h3 class="news-title">英伟达CEO黄仁勋：到2030年Anthropic收入或超1万亿美元</h3></div>
-      <div class="card-body">
-        <div class="news-meta">来源：钛媒体</div>
-        <div class="news-content">英伟达CEO黄仁勋呼吁科技业领袖避免散布AI恐慌情绪。他表示，到2030年Anthropic收入或超1万亿美元。马斯克称SpaceX AI和特斯拉预计将继续大规模订购英伟达芯片。</div>
-        <div class="quote">
-          <div class="quote-text">"非常欣赏英伟达和黄仁勋，英伟达市值实至名归"</div>
-          <div class="quote-author">— 马斯克</div>
-        </div>
-      </div>
-      <div class="card-footer"><a class="news-link" href="https://www.tmtpost.com/nictation/7922013.html">查看原文</a></div>
-    </div>
-
-    <div class="news-card">
-      <div class="card-header"><h3 class="news-title">Meta AI Moderation系统将取代内容审核承包商</h3></div>
-      <div class="card-body">
-        <div class="news-meta">来源：The Verge</div>
-        <div class="news-content">Meta宣布将广泛部署AI支持助手用于Facebook和Instagram，并表示将"减少对第三方供应商"的依赖。AI系统将承担重复性审核工作，如审核图形内容、处理非法药物销售或诈骗等不断变化策略的领域。</div>
-      </div>
-      <div class="card-footer"><a class="news-link" href="https://www.theverge.com/">查看原文</a></div>
-    </div>
-
-    <div class="news-card">
-      <div class="card-header"><h3 class="news-title">Signal创始人与Meta合作加密AI</h3></div>
-      <div class="card-body">
-        <div class="news-meta">来源：The Verge</div>
-        <div class="news-content">Signal创始人Moxie Marlinspike正在与Meta合作，将Confer的隐私技术整合到Meta AI底层，实现AI对话加密。</div>
-      </div>
-      <div class="card-footer"><a class="news-link" href="https://confer.to/blog/2026/03/encrypted-meta/">查看原文</a></div>
-    </div>
-
-    <div class="news-card">
-      <div class="card-header"><h3 class="news-title">Google测试macOS版Gemini应用</h3></div>
-      <div class="card-body">
-        <div class="news-meta">来源：The Verge</div>
-        <div class="news-content">Google正在测试macOS版Gemini应用，这将使macOS成为继Windows之后又一个获得独立Gemini应用的桌面平台。</div>
-      </div>
-      <div class="card-footer"><a class="news-link" href="https://www.theverge.com/">查看原文</a></div>
-    </div>
-
-    <div class="news-card">
-      <div class="card-header"><h3 class="news-title">Microsoft发布MAI-Image-2图像模型</h3></div>
-      <div class="card-body">
-        <div class="news-meta">来源：The Verge</div>
-        <div class="news-content">Microsoft推出第二代AI图像模型MAI-Image-2，增强了照片级真实感和更可靠的文本生成能力，目前已在Copilot和Bing Image Creator中推出。</div>
-      </div>
-      <div class="card-footer"><a class="news-link" href="https://microsoft.ai/news/introducing-MAI-Image-2/">查看原文</a></div>
-    </div>
-
-    <div class="news-card">
-      <div class="card-header"><h3 class="news-title">亚马逊Alexa+登陆英国</h3></div>
-      <div class="card-body">
-        <div class="news-meta">来源：钛媒体</div>
-        <div class="news-content">亚马逊宣布智能助理Alexa+从3月19日起在英国推出，作为"抢先体验"计划的一部分。Prime会员可免费使用，非Prime用户需支付每月19.99英镑。</div>
-      </div>
-      <div class="card-footer"><a class="news-link" href="https://www.tmtpost.com/nictation/7920920.html">查看原文</a></div>
-    </div>
-
-    <div class="news-card">
-      <div class="card-header"><h3 class="news-title">贝索斯蓝色起源拟部署近5.2万颗AI卫星</h3></div>
-      <div class="card-body">
-        <div class="news-meta">来源：钛媒体</div>
-        <div class="news-content">贝索斯旗下蓝色起源公司计划部署近5.2万颗人工智能卫星，用于提供全球AI服务。这一计划将使蓝色起源成为卫星互联网领域的重要参与者。</div>
-      </div>
-      <div class="card-footer"><a class="news-link" href="https://www.tmtpost.com/nictation/7922007.html">查看原文</a></div>
-    </div>
-
-    <!-- 其他科技资讯 -->
-    <div class="category-title.orange">📱 其他科技资讯</div>
-
-    <div class="news-card">
-      <div class="card-header"><h3 class="news-title">包装纸龙头5.5亿"豪赌"国产GPU芯片</h3></div>
-      <div class="card-body">
-        <div class="news-meta">来源：钛媒体</div>
-        <div class="news-content">大胜达宣布5.5亿元投资国产GPU芯片，这是包装纸龙头企业的战略卡位还是豪赌？引发市场关注。</div>
-      </div>
-      <div class="card-footer"><a class="news-link" href="https://www.tmtpost.com/7921752.html">查看原文</a></div>
-    </div>
-
-    <div class="news-card">
-      <div class="card-header"><h3 class="news-title">中国首个"路空一体"国家级检测基地正式投用</h3></div>
-      <div class="card-body">
-        <div class="news-meta">来源：钛媒体</div>
-        <div class="news-content">中国首个"路空一体"国家级检测基地正式投用，标志着交通领域AI应用迈出新步伐。</div>
-      </div>
-      <div class="card-footer"><a class="news-link" href="https://www.tmtpost.com/nictation/7922011.html">查看原文</a></div>
-    </div>
-
-    <div class="news-card">
-      <div class="card-header"><h3 class="news-title">脑机接口赛道爆发：首款侵入式器械获批</h3></div>
-      <div class="card-body">
-        <div class="news-meta">来源：钛媒体</div>
-        <div class="news-content">历经半个世纪，脑机接口终于进入医疗现实。首款侵入式器械获批，赛道爆发在即，AI主导的全球直播引发关注。</div>
-      </div>
-      <div class="card-footer"><a class="news-link" href="https://www.tmtpost.com/7919693.html">查看原文</a></div>
-    </div>
-
-    <div class="news-card">
-      <div class="card-header"><h3 class="news-title">2026年重大利好：手术机器人分档收费国标出台</h3></div>
-      <div class="card-body">
-        <div class="news-meta">来源：钛媒体</div>
-        <div class="news-content">手术机器人分档收费国标出台，引燃行业。政策明确推动医疗AI发展。</div>
-      </div>
-      <div class="card-footer"><a class="news-link" href="https://www.tmtpost.com/7861689.html">查看原文</a></div>
-    </div>
-
-    <div class="simple-card">
-      <div class="news-title">美国国债突破39万亿美元</div>
-      <div class="news-content">5个月增加1万亿美元，美国国债总额突破历史新高至39万亿美元</div>
-      <a class="news-link" href="https://www.tmtpost.com/nictation/7920396.html">查看原文</a>
-    </div>
-
-    <div class="simple-card">
-      <div class="news-title">闪送2025年盈利根基稳固</div>
-      <div class="news-content">闪送2025年全年营收40亿元，连续三年实现经调整净利润盈利，低空物流打开"空地一体"新增长极</div>
-      <a class="news-link" href="https://www.tmtpost.com/7920945.html">查看原文</a>
-    </div>
-
-    <!-- 今日洞察 -->
+    <!-- 洞察 -->
     <div class="insight">
-      <h3>💡 今日洞察</h3>
-      <p><strong>AI Agent战</strong>争全面爆发：钉钉发布悟空、飞书推出龙虾智能体、Clawith开源，B端AI Agent赛道进入战国时代。<br><br><strong>算力持续紧缺</strong>：阿里CEO吴泳铭表示未来3-5年全球算力都将处于紧缺状态，平头哥已累计交付47万片GPU。<br><br><strong>AI应用加速落地</strong>：LibTV实现AI视频创作自动化，从脚本到分镜批量生成；脑机接口首款侵入式器械获批，医疗AI迎来突破。<br><br><strong>监管与安全</strong>：微信安全中心发布AI生成内容治理公告，Meta用AI系统取代人工内容审核承包商。</p>
+      <div class="section-title">💡 今日洞察</div>
+      <p><strong>Kimi K2.5再次出圈：</strong>一周内两次被马斯克点名，Cursor基于Kimi K2.5微调，在编码测评中超越Claude Opus 4.6。这标志着国产大模型在AI编程领域取得实质性突破。</p>
     </div>
 
-    <div class="sources">来源：品玩、钛媒体、The Verge | 整理：卧龙</div>
+    <div class="sources">来源：虎嗅、36氪、机器之心、The Verge、Wired 等 | 整理：卧龙</div>
   </div>
 </body>
 </html>
