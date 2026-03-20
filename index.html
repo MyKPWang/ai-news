@@ -15,33 +15,15 @@
     }
     .container { max-width: 600px; margin: 0 auto; }
     
-    /* 头部 */
     .header { padding: 20px 16px; background: #fff; border-radius: 12px 12px 0 0; }
     .header h1 { font-size: 24px; font-weight: 700; color: #1a1a1a; }
     .header .date { font-size: 13px; color: #999; margin-top: 4px; }
     
-    /* 今日热点 */
     .hot-box { background: #fff; padding: 16px; border-radius: 12px; margin-bottom: 12px; border: 1px solid #e8e8e8; }
     .hot-box .title { font-size: 15px; font-weight: 700; color: #e74c3c; margin-bottom: 12px; }
-    .hot-box .item { display: flex; align-items: flex-start; padding: 8px 0; border-bottom: 1px solid #f0f0f0; }
+    .hot-box .item { padding: 8px 0; border-bottom: 1px solid #f0f0f0; font-size: 14px; }
     .hot-box .item:last-child { border-bottom: none; }
-    .hot-box .num { 
-      width: 20px; 
-      height: 20px; 
-      background: #e74c3c; 
-      border-radius: 50%; 
-      display: flex; 
-      align-items: center; 
-      justify-content: center;
-      font-size: 12px; 
-      font-weight: 700; 
-      color: #fff; 
-      margin-right: 10px; 
-      flex-shrink: 0;
-    }
-    .hot-box .text { color: #333; font-size: 14px; }
     
-    /* 分类 */
     .sec { margin-bottom: 12px; }
     .sec-title { 
       font-size: 15px; 
@@ -55,15 +37,14 @@
     }
     .sec-title::before { content: ""; width: 3px; height: 16px; background: #ff6b6b; margin-right: 10px; border-radius: 2px; }
     .sec-title.blue::before { background: #4299e1; }
-    .sec-title.orange::before { background: #ed8936; }
     
     .sec-list { background: #fff; border-radius: 0 0 12px 12px; padding: 4px 0; }
     .sec-list .item { padding: 12px 16px; border-bottom: 1px solid #f5f5f5; }
     .sec-list .item:last-child { border-bottom: none; }
-    .sec-list .title { font-size: 14px; font-weight: 500; color: #0052d9; }
-    .sec-list .meta { font-size: 12px; color: #999; margin-top: 4px; }
+    .sec-list .title { font-size: 15px; font-weight: 600; color: #0052d9; margin-bottom: 4px; }
+    .sec-list .desc { font-size: 13px; color: #666; margin-bottom: 6px; line-height: 1.5; }
+    .sec-list .meta { font-size: 12px; color: #999; }
     
-    /* 底部 */
     .footer { text-align: center; padding: 20px; color: #bbb; font-size: 12px; }
   </style>
 </head>
@@ -76,28 +57,54 @@
     
     <div class="hot-box">
       <div class="title">📌 今日热点</div>
-      <div class="item"><span class="num">1</span><span class="text">马斯克确认Cursor基于Kimi K2.5微调</span></div>
-      <div class="item"><span class="num">2</span><span class="text">微软大刀阔斧重组AI部门</span></div>
-      <div class="item"><span class="num">3</span><span class="text">章鱼动力获近5000万美元融资</span></div>
+      <div class="item">1. 马斯克点名Kimi K2.5：Cursor Composer 2基于Kimi K2.5微调</div>
+      <div class="item">2. 英伟达GTC大会：发布Vera Rubin架构算力平台</div>
+      <div class="item">3. 物理AGI新融资："章鱼动力"获近5000万美元首轮融资</div>
     </div>
-    
+
     <div class="sec">
       <div class="sec-title">🏷️ 国内AI</div>
       <div class="sec-list">
-        <div class="item"><div class="title">腾讯走到命运拐点了</div><div class="meta">来源：虎嗅</div></div>
-        <div class="item"><div class="title">地平线争做"英伟达平替"</div><div class="meta">来源：36氪</div></div>
+        <div class="item">
+          <div class="title">马斯克确认Cursor Composer 2基于Kimi K2.5微调</div>
+          <div class="desc">编程工具Cursor发布自研前沿编码模型Composer 2，因性价比引发关注。马斯克社交媒体确认基于K2.5微调，这是一周内第二次点名Kimi。</div>
+          <div class="meta">来源：36氪</div>
+        </div>
+        <div class="item">
+          <div class="title">"章鱼动力"获近5000万美元首轮融资</div>
+          <div class="desc">专注物理AGI领域的"章鱼动力"（SynapX）完成近5000万美元首轮融资，由地平线、高瓴创投、小米战投等联合投资。</div>
+          <div class="meta">来源：36氪</div>
+        </div>
+        <div class="item">
+          <div class="title">小鹏汽车第二代VLA模型推动销量翻倍</div>
+          <div class="desc">第二代VLA模型已开始向用户陆续推送，这是面向L4全自动驾驶时代交付的首个版本。3月日均试驾量环比提升一倍。</div>
+          <div class="meta">来源：36氪</div>
+        </div>
       </div>
     </div>
-    
+
     <div class="sec">
       <div class="sec-title blue">🌍 国外AI</div>
       <div class="sec-list">
-        <div class="item"><div class="title">Meta AI审核系统将取代外包人员</div><div class="meta">来源：The Verge</div></div>
-        <div class="item"><div class="title">Samsung计划730亿美元扩张AI芯片</div><div class="meta">来源：Wired</div></div>
+        <div class="item">
+          <div class="title">Meta发布V-JEPA 2.1</div>
+          <div class="desc">Yann LeCun等人发布V-JEPA 2.1论文，改进模型学习方法，获得同行认可其大规模应用有效性。</div>
+          <div class="meta">来源：InfoQ</div>
+        </div>
+        <div class="item">
+          <div class="title">三星投资730亿美元AI芯片扩张</div>
+          <div class="desc">计划在2026年增加22%生产和研发投资，目标超越SK Hynix成为英伟达主要内存供应商。</div>
+          <div class="meta">来源：The Verge</div>
+        </div>
+        <div class="item">
+          <div class="title">Meta用AI替代内容审核承包商</div>
+          <div class="desc">宣布扩大AI支持助手应用范围，未来几年将"减少对第三方供应商的依赖"。</div>
+          <div class="meta">来源：The Verge</div>
+        </div>
       </div>
     </div>
-    
-    <div class="footer">来源：虎嗅、36氪、机器之心、The Verge、Wired</div>
+
+    <div class="footer">来源：36氪、虎嗅、机器之心、InfoQ、The Verge、Wired等</div>
   </div>
 </body>
 </html>
