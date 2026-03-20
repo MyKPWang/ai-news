@@ -17,79 +17,58 @@
     
     /* 顶部 */
     .header { margin-bottom: 16px; }
-    .header h1 { font-size: 22px; font-weight: 700; color: #1a1a1a; margin-bottom: 4px; }
-    .header .date { font-size: 13px; color: #999; }
+    .header h1 { font-size: 20px; font-weight: 700; color: #1a1a1a; }
+    .header .date { font-size: 13px; color: #999; margin-top: 2px; }
     
-    /* 今日要闻 - 红色背景 */
+    /* 今日热点 */
     .hot-section { 
-      background: linear-gradient(135deg, #e74c3c, #c0392b);
+      background: #fff;
       border-radius: 10px;
       padding: 14px 16px;
       margin-bottom: 16px;
-      color: #fff;
     }
     .hot-section .section-title { 
       font-size: 15px; 
       font-weight: 700; 
-      margin-bottom: 10px;
-      color: #fff;
+      margin-bottom: 12px;
+      color: #e74c3c;
     }
     .hot-section .news-item {
-      padding: 8px 0;
-      border-bottom: 1px solid rgba(255,255,255,0.2);
+      padding: 10px 0;
+      border-bottom: 1px solid #f0f0f0;
       font-size: 14px;
+      display: flex;
+      gap: 10px;
     }
     .hot-section .news-item:last-child { border-bottom: none; }
-    .hot-section .news-item a { color: #fff; text-decoration: none; }
-    
-    /* 分类标签 */
-    .tag { 
-      display: inline-block;
-      font-size: 13px; 
-      font-weight: 600;
-      padding: 4px 10px;
-      border-radius: 4px;
-      margin-bottom: 10px;
+    .hot-section .num { 
+      color: #e74c3c; 
+      font-weight: 700;
+      min-width: 20px;
     }
-    .tag.red { background: #ffeaea; color: #e74c3c; }
-    .tag.blue { background: #e8f4fd; color: #3498db; }
-    .tag.orange { background: #fff4e6; color: #f39c12; }
+    .hot-section .news-title { color: #333; }
     
-    /* 新闻卡片 */
-    .news-card { 
-      background: #fff; 
-      border-radius: 10px; 
-      padding: 14px 16px; 
-      margin-bottom: 10px;
-      box-shadow: 0 1px 3px rgba(0,0,0,0.06);
-    }
-    .news-card .news-title { 
-      font-size: 15px; 
+    /* 分类 */
+    .category { 
+      font-size: 16px; 
       font-weight: 600; 
-      color: #1a1a1a; 
-      margin-bottom: 4px;
-      line-height: 1.4;
+      margin: 20px 0 10px 0; 
+      padding-left: 10px;
+      border-left: 3px solid #e74c3c;
+      color: #1a1a1a;
     }
-    .news-card .news-meta { 
-      font-size: 12px; 
-      color: #999; 
-      margin-bottom: 6px; 
-    }
-    .news-card .news-desc { 
-      font-size: 14px; 
-      color: #666; 
-    }
+    .category.blue { border-left-color: #3498db; }
+    .category.orange { border-left-color: #f39c12; }
     
-    /* 洞察 - 蓝色背景 */
-    .insight {
-      background: linear-gradient(135deg, #3498db, #1a5276);
+    /* 列表项 */
+    .list-item {
+      background: #fff;
       border-radius: 10px;
-      padding: 16px;
-      margin-top: 16px;
-      color: #fff;
+      padding: 12px 16px;
+      margin-bottom: 8px;
     }
-    .insight .section-title { font-size: 14px; font-weight: 700; margin-bottom: 10px; }
-    .insight p { font-size: 13px; line-height: 1.6; opacity: 0.95; }
+    .list-item .title { font-size: 14px; font-weight: 500; color: #1a1a1a; }
+    .list-item .meta { font-size: 12px; color: #999; margin-top: 4px; }
     
     /* 来源 */
     .sources { 
@@ -107,45 +86,23 @@
       <div class="date">2026年3月21日 周五</div>
     </div>
 
-    <!-- 今日要闻 -->
+    <!-- 今日热点 -->
     <div class="hot-section">
-      <div class="section-title">📌 今日要闻</div>
-      <div class="news-item"><a href="#">1. 马斯克确认Cursor基于Kimi K2.5微调，一周内再次点名月之暗面</a></div>
-      <div class="news-item"><a href="#">2. 微软大刀阔斧重组AI部门，优先编码和企业用户</a></div>
-      <div class="news-item"><a href="#">3. "章鱼动力"获近5000万美元首轮融资，专注物理AGI</a></div>
+      <div class="section-title">今日热点</div>
+      <div class="news-item"><span class="num">1</span><span class="news-title">马斯克确认Cursor基于Kimi K2.5微调</span></div>
+      <div class="news-item"><span class="num">2</span><span class="news-title">微软大刀阔斧重组AI部门</span></div>
+      <div class="news-item"><span class="num">3</span><span class="news-title">章鱼动力获近5000万美元融资</span></div>
     </div>
 
     <!-- 国内AI -->
-    <span class="tag red">🏷️ 国内AI</span>
-    <div class="news-card">
-      <div class="news-title">腾讯走到命运拐点了</div>
-      <div class="news-meta">来源：虎嗅</div>
-      <div class="news-desc">AI正从底层改写腾讯的增长逻辑、产品范式与商业基因。</div>
-    </div>
-    <div class="news-card">
-      <div class="news-title">地平线争做"英伟达平替"</div>
-      <div class="news-meta">来源：36氪</div>
-      <div class="news-desc">国产AI芯片企业在激烈市场中寻求突破。</div>
-    </div>
+    <div class="category">🏷️ 国内AI</div>
+    <div class="list-item"><div class="title">腾讯走到命运拐点了</div><div class="meta">来源：虎嗅</div></div>
+    <div class="list-item"><div class="title">地平线争做"英伟达平替"</div><div class="meta">来源：36氪</div></div>
 
     <!-- 国外AI -->
-    <span class="tag blue">🌍 国外AI</span>
-    <div class="news-card">
-      <div class="news-title">Meta AI审核系统将取代外包人员</div>
-      <div class="news-meta">来源：The Verge</div>
-      <div class="news-desc">Meta宣布将广泛部署AI支持助手，减少对第三方供应商的依赖。</div>
-    </div>
-    <div class="news-card">
-      <div class="news-title">Samsung计划730亿美元扩张AI芯片产能</div>
-      <div class="news-meta">来源：Wired</div>
-      <div class="news-desc">2026年增加22%投资，旨在超越SK海力士。</div>
-    </div>
-
-    <!-- 洞察 -->
-    <div class="insight">
-      <div class="section-title">💡 今日洞察</div>
-      <p><strong>Kimi K2.5再次出圈：</strong>一周内两次被马斯克点名，Cursor基于Kimi K2.5微调，在编码测评中超越Claude Opus 4.6，标志着国产大模型在AI编程领域取得突破。</p>
-    </div>
+    <div class="category blue">🌍 国外AI</div>
+    <div class="list-item"><div class="title">Meta AI审核系统将取代外包人员</div><div class="meta">来源：The Verge</div></div>
+    <div class="list-item"><div class="title">Samsung计划730亿美元扩张AI芯片</div><div class="meta">来源：Wired</div></div>
 
     <div class="sources">来源：虎嗅、36氪、机器之心、The Verge、Wired 等</div>
   </div>
