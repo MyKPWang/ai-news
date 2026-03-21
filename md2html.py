@@ -9,7 +9,7 @@ from datetime import datetime
 
 # 配置路径
 MD_FILE = '/Users/wangkaipeng/.openclaw/workspace/ai-news/news.md'
-TEMPLATE_FILE = '/Users/wangkaipeng/.openclaw/workspace/ai-news/template_new.html'
+TEMPLATE_FILE = '/Users/wangkaipeng/.openclaw/workspace/ai-news/template.html'
 OUTPUT_FILE = '/Users/wangkaipeng/.openclaw/workspace/ai-news/index.html'
 
 # 板块颜色配置
