@@ -128,24 +128,16 @@ def parse_markdown(md_content):
             end_pos = len(md_content)
         hot_content = md_content[start_pos:end_pos]
         
-        # 匹配 1. **标题** — 描述 或 1. **标题**
+        # 匹配 1. **标题** 或 1. **标题**（描述）
         for line in hot_content.split('\n'):
             line = line.strip()
             if line:
-                # 先尝试匹配：1. **标题** — 描述
-                match = re.match(r'^\d+\.\s*\*\*(.+?)\*\*\s*(?:—|-)\s*(.+)$', line)
+                # 匹配：1. **标题**（来自xxx）或 1. **标题**
+                match = re.match(r'^\d+\.\s*\*\*(.+?)\*\*\s*（.*?）?$', line)
                 if match:
                     title = match.group(1).strip()
-                    desc = match.group(2).strip()
                     if title:
-                        data['hot_items'].append({'title': title, 'desc': desc})
-                else:
-                    # 再尝试匹配：1. **标题**（没有描述）
-                    match = re.match(r'^\d+\.\s*\*\*(.+?)\*\*$', line)
-                    if match:
-                        title = match.group(1).strip()
-                        if title:
-                            data['hot_items'].append({'title': title, 'desc': ''})
+                        data['hot_items'].append({'title': title, 'desc': ''})
     
     # 解析各个资讯板块
     section_names = ['国内AI资讯', '国外AI资讯', '智能硬件资讯', '其它科技资讯']
