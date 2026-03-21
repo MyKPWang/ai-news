@@ -245,7 +245,12 @@ def render_sections(sections):
             html += f'        <div class="item">\n'
             html += f'          <div class="title">{item["title"]}</div>\n'
             if item['desc']:
-                html += f'          <div class="desc">{item["desc"]}</div>\n'
+                # 如果描述包含换行符，转换为p标签或增加间距
+                desc_html = item['desc'].replace('\n\n', '</p><p class="desc">').replace('\n', '<br>')
+                if '</p><p class="desc">' in desc_html:
+                    html += f'          <div class="desc"><p class="desc">{desc_html}</p></div>\n'
+                else:
+                    html += f'          <div class="desc">{desc_html}</div>\n'
             if item['source']:
                 html += f'          <div class="meta">来源：{item["source"]}</div>\n'
             if item['link']:
