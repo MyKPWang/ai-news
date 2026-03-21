@@ -1,15 +1,11 @@
 # AI行业资讯 | 2026年3月21日
 
-## 今日热点（4-6条热度较高的新闻摘要）
-1. **Nvidia GTC 2026 发布 Vera Rubin 架构** — 英伟达在GTC 2026大会上发布新一代Vera Rubin架构平台，这是继Blackwell之后的又一重大更新。该平台声称推理吞吐量比Blackwell系统提升10倍，每token成本降低90%。Vera Rubin采用7芯片设计，包含1个CPU和6个GPU，专门针对推理任务优化。AWS、Google Cloud、Microsoft Azure和Oracle Cloud都将提供该平台，超过80家制造合作伙伴围绕其构建系统。英伟达还发布了DGX Station桌面超级计算机，这是一款六位数的桌面超算，可在本地运行万亿参数AI模型，面向希望在本地保留数据、代理和知识产权的企业和开发者。来源：VentureBeat | [链接](https://venturebeat.com)
-
-2. **Meta 宣布用 AI 替代人工内容审核承包商** — Meta宣布将广泛部署AI支持助手用于内容审核，并表示未来几年将"减少对第三方供应商"的依赖，用AI系统替代人工内容审核工作。AI系统将承担重复性的图形内容审核，以及对抗性行为者不断改变策略的领域，如非法毒品销售或诈骗。虽然仍会有人员审核内容，但AI技术将更适合处理这些高强度工作。这一决定标志着AI agent在企业实际应用场景中的重要突破。来源：The Verge | [链接](https://www.theverge.com)
-
-3. **Signal 创始人 Moxie Marlinspike 与 Meta 合作加密 AI 对话** — Signal创始人Moxie Marlinspike宣布正在与Meta合作，将Confer的隐私技术整合到Meta AI底层，实现AI对话端到端加密。Confer是Moxie Marlinspike新推出的加密AI聊天工具，此次合作旨在为Meta AI用户提供企业级隐私保护。这是科技巨头首次在AI对话安全领域与加密通信专家深度合作。来源：Wired | [链接](https://www.wired.com/story/signals-creator-is-helping-encrypt-meta-ai/)
-
-4. **Samsung 计划投资 730 亿美元扩张 AI 芯片产能** — Samsung宣布计划2026年增加22%的生产和研发投资，总额达730亿美元，目标超越SK Hynix成为Nvidia的主要内存供应商。Samsung联合CEO Jun Young-hyun表示，agentic AI的需求正在激增，推动订单大幅增长。资金将投向先进机器人等"面向未来"的领域。Samsung此前是Nvidia HBM内存的主要供应商之一，此次扩产旨在巩固其市场地位。来源：The Verge | [链接](https://www.theverge.com)
-
-5. **Microsoft 发布 MAI-Image 2 第二代图像生成模型** — 微软推出MAI-Image 2，这是其第二代AI图像生成模型。新版本提供"增强的逼真感"和"更可靠的图像文字生成功能"。该模型目前已在Copilot和Bing Image Creator中推出，用户可以直接体验最新的图像生成能力。微软表示MAI-Image 2在文字渲染和细节表现方面有显著提升。来源：The Verge | [链接](https://www.theverge.com)
+## 今日热点（4-6条，只放标题）
+1. **Nvidia GTC 2026 发布 Vera Rubin 架构**
+2. **Meta 宣布用 AI 替代人工内容审核承包商**
+3. **Signal 创始人 Moxie Marlinspike 与 Meta 合作加密 AI 对话**
+4. **Samsung 计划投资 730 亿美元扩张 AI 芯片产能**
+5. **Microsoft 发布 MAI-Image 2 第二代图像生成模型**
 
 ## 国内AI资讯
 - **宇树科技 IPO 获受理** — 上交所正式受理宇树科技IPO申请，这家由王兴兴创办的人形机器人公司正式开启上市进程。宇树科技成立于2016年，是国内最早实现四足机器人商业化的公司之一，其产品包括Unitree Go1、Unitree H1等。宇树科技背后站着半个硬科技投资圈，包括红杉中国、经纬创投等知名机构。宇树科技被认为是国内最具潜力的机器人公司之一，其估值在最近一轮融资中超过10亿美元。来源：虎嗅 | [链接](https://www.huxiu.com/article/4844005.html)
