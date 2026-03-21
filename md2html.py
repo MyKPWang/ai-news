@@ -27,6 +27,48 @@ SECTION_EMOJI = {
     '其它科技': '💻',
 }
 
+# 域名映射 - 用于拼接相对路径
+DOMAIN_MAP = {
+    '36kr': 'https://www.36kr.com',
+    'huxiu': 'https://www.huxiu.com',
+    'jiemian': 'https://www.jiemian.com',
+    'infoq': 'https://www.infoq.cn',
+    'theverge': 'https://www.theverge.com',
+    'wired': 'https://www.wired.com',
+    'venturebeat': 'https://venturebeat.com',
+    'reuters': 'https://www.reuters.com',
+    'bbc': 'https://www.bbc.com',
+    'wsj': 'https://www.wsj.com',
+}
+
+
+def fix_link(link):
+    """修复链接：相对路径拼接域名，绝对路径直接返回"""
+    if not link:
+        return ''
+    
+    link = link.strip()
+    
+    # 如果是相对路径（以/开头，不是http）
+    if link.startswith('/'):
+        # 尝试识别域名
+        for domain, base_url in DOMAIN_MAP.items():
+            # 这里简化处理：如果是 /newsflashes/xxx 或 /article/xxx，拼接36kr或虎嗅
+            if '/newsflashes/' in link or '/p/' in link:
+                return 'https://www.36kr.com' + link
+            elif '/article/' in link:
+                return 'https://www.huxiu.com' + link
+            elif '/news/' in link:
+                return 'https://www.jiemian.com' + link
+        # 默认返回原链接（可能是正确的相对路径）
+        return link
+    
+    # 如果已经是完整链接，直接返回
+    if link.startswith('http://') or link.startswith('https://'):
+        return link
+    
+    return link
+
 
 def read_file(path):
     with open(path, 'r', encoding='utf-8') as f:
@@ -199,7 +241,8 @@ def render_sections(sections):
             if item['source']:
                 html += f'          <div class="meta">来源：{item["source"]}</div>\n'
             if item['link']:
-                html += f'          <div class="link"><a href="{item["link"]}">查看原文 →</a></div>\n'
+                fixed_link = fix_link(item['link'])
+                html += f'          <div class="link"><a href="{fixed_link}">查看原文 →</a></div>\n'
             html += f'        </div>\n'
         
         html += '      </div>\n    </div>'
