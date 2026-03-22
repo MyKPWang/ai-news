@@ -75,11 +75,11 @@ def extract_hot_items(content):
 def extract_all_sources(content):
     """提取所有来源并去重"""
     sources = set()
-    # 匹配 "来源：xxx" 格式，支持空格（用于 "The Verge" 这种）
-    for match in re.finditer(r'来源：([a-zA-Z0-9\u4e00-\u9fa5][a-zA-Z0-9\u4e00-\u9fa5\s]*)', content):
+    # 匹配 "来源：xxx" 格式，只匹配单行内的来源
+    for match in re.finditer(r'来源：([a-zA-Z0-9\u4e00-\u9fa5][a-zA-Z0-9\u4e00-\u9fa5\s]*?)(?:\n|$)', content):
         source = match.group(1).strip()
-        # 清理末尾的标点
-        source = re.sub(r'[，。,.\s]+$', '', source)
+        # 清理末尾的标点和空格
+        source = re.sub(r'[，。,.\s。、]+$', '', source)
         # 过滤掉一些无关的词和太短的
         if source and len(source) >= 2 and source not in ['链接', '原文', '来源']:
             sources.add(source)
@@ -176,9 +176,19 @@ def generate_wechat_html(content, date):
     
     # 各板块
     sections_html = ""
-    for sec_name, emoji in [('国内AI资讯', '🏷️'), ('国外AI资讯', '🌍'), 
-                            ('智能硬件资讯', '📱'), ('其它科技资讯', '💻')]:
+        # 板块映射
+    sec_mapping = [
+        ('国内AI资讯', '🏷️'),
+        ('国外AI资讯', '🌍'),
+        ('智能硬件', '📱'),
+    ]
+    
+    for sec_name, emoji in sec_mapping:
         sec_content = extract_section(content, sec_name)
+        # 如果找不到，试试带"资讯"后缀的
+        if not sec_content:
+            sec_name_with_suffix = sec_name + '资讯'
+            sec_content = extract_section(content, sec_name_with_suffix)
         if not sec_content:
             continue
             
@@ -197,9 +207,13 @@ def generate_wechat_html(content, date):
             title_match = re.search(r'\*\*(.+?)\*\*', item)
             title = title_match.group(1) if title_match else ""
             
-            # 描述匹配：从标题后到"来源："之前
+            # 描述匹配：从标题后到"来源："之前（去掉来源部分）
             desc_match = re.search(r'\*\*.*?\*\*\s*[—\-]\s*(.+?)(?=\n来源：|$)', item, re.DOTALL)
             desc = desc_match.group(1).strip() if desc_match else ""
+            # 去掉描述末尾的"来源：xxx"
+            desc = re.sub(r'\s*来源：[^\n]+$', '', desc)
+            # 再处理末尾有换行的情况
+            desc = re.sub(r'\s*来源：.+$', '', desc, flags=re.DOTALL)
             
             # 来源匹配
             source_match = re.search(r'来源：([^\n]+)', item)
@@ -219,10 +233,13 @@ def generate_wechat_html(content, date):
 {items_html}
 '''
     
-    # 今日洞察
+    # 今日洞察（去掉末尾的来源信息）
     insight = extract_section(content, '今日洞察')
     insight_html = ""
     if insight:
+        # 去掉末尾的"来源：xxx"部分
+        insight = re.sub(r'\n*来源：.*$', '', insight)
+        insight = insight.strip()
         insight_html = f'''
     <h2 style="color:#000000;font-weight:bold;font-size:19px;margin-top:25px;">💡 今日洞察</h2>
     <div style="background:#f6ffed;padding:15px;border-radius:8px;line-height:1.8;font-size:15px;">

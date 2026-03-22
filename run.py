@@ -179,7 +179,7 @@ def generate_github_html(content, date):
         hot_html += f"                <li>{item}</li>\n"
     
     sections_html = ""
-    for sec_name in ['国内AI资讯', '国外AI资讯', '智能硬件资讯', '其它科技资讯']:
+    for sec_name in ['国内AI资讯', '国外AI资讯', '智能硬件资讯']:
         sec_content = extract_section(content, sec_name)
         if not sec_content:
             continue
@@ -248,7 +248,7 @@ def generate_wechat_html(content, date):
     
     sections_html = ""
     for sec_name, emoji in [('国内AI资讯', '🏷️'), ('国外AI资讯', '🌍'), 
-                            ('智能硬件资讯', '📱'), ('其它科技资讯', '💻')]:
+                            ('智能硬件资讯', '📱')]:
         sec_content = extract_section(content, sec_name)
         if not sec_content:
             continue
