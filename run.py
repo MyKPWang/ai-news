@@ -1,0 +1,415 @@
+#!/usr/bin/env python3
+# -*- coding: utf-8 -*-
+"""
+AI 资讯早报 - 一键收集发布
+整合了：AI洞察生成 + HTML生成 + 公众号推送
+"""
+import re
+import json
+import requests
+from datetime import datetime
+from pathlib import Path
+import subprocess
+import sys
+from md2wechat import read_news_md as md_read_news_md, extract_date, extract_section as md_extract_section, generate_github_html, generate_wechat_html as md_generate_wechat_html, upload_cover
+
+# 配置
+WORK_DIR = Path("/Users/wangkaipeng/.openclaw/workspace/ai-news")
+NEWS_FILE = WORK_DIR / "news.md"
+COVER_FILE = WORK_DIR / "cover.jpg"
+COVER_MEDIA_ID_FILE = WORK_DIR / "cover_media_id.txt"
+TEMPLATE_WECHAT = WORK_DIR / "template_wechat.html"
+TEMPLATE_GITHUB = WORK_DIR / "template_github.html"
+OUTPUT_HTML = WORK_DIR / "index.html"
+OUTPUT_WECHAT_HTML = WORK_DIR / "wechat_article.html"
+
+# 公众号配置
+APP_ID = "wxdef888862e3ecca1"
+APP_SECRET = "1483a2e68153e9cf6a5f1580e223e660"
+
+
+def read_news_md():
+    with open(NEWS_FILE, 'r', encoding='utf-8') as f:
+        return f.read()
+
+
+def read_template(path):
+    with open(path, 'r', encoding='utf-8') as f:
+        return f.read()
+
+
+def extract_date(content):
+    match = re.search(r'#\s*AI行业资讯\s*\|\s*(\d+年\d+月\d+日)', content)
+    return match.group(1) if match else datetime.now().strftime("%Y年%m月%d日")
+
+
+def extract_section(content, section_name):
+    pattern = rf'## {section_name}\s*\n(.*?)(?=##\s|$)'
+    match = re.search(pattern, content, re.DOTALL)
+    return match.group(1).strip() if match else ""
+
+
+def extract_hot_items(content):
+    pattern = r'## 今日热点.*?\n(.*?)(?=##\s|$)'
+    match = re.search(pattern, content, re.DOTALL)
+    if not match:
+        return []
+    
+    items = []
+    for line in match.group(1).split('\n'):
+        line = line.strip()
+        if line and (line[0].isdigit() or line.startswith('-')):
+            title = line.replace('**', '')
+            title = re.sub(r'^\d+\.\s*', '', title)
+            title = re.sub(r'（来自.*?）', '', title)
+            items.append(title.strip())
+    return items
+
+
+def generate_ai_insight():
+    """调用 AI 生成今日洞察"""
+    print("\n🤔 正在调用 AI 生成今日洞察...")
+    
+    content = md_read_news_md()
+    hot_items = extract_hot_items(content)
+    
+    if not hot_items:
+        print("   ⚠️ 未找到今日热点，跳过洞察生成")
+        return False
+    
+    hot_text = '\n'.join([f"{i+1}. {item}" for i, item in enumerate(hot_items)])
+    
+    prompt = f"""你是一个科技行业分析师。请根据以下今日热点新闻，生成一段 150-200 字的今日洞察。
+
+要求：
+1. 总结 3-4 个核心趋势
+2. 观点客观、有见解
+3. 语言简洁有力
+4. 只输出洞察内容，不要标题
+5. 段落之间要空一行
+
+今日热点：
+{hot_text}
+
+今日洞察："""
+
+    # 调用 OpenClaw 的 API 生成洞察
+    try:
+        result = subprocess.run(
+            ['python3', '-c', f'''
+import requests
+import json
+
+prompt = """{prompt}"""
+
+# 调用 MiniMax API (通过 OpenClaw)
+payload = {{
+    "model": "minimax-portal/MiniMax-M2.5",
+    "messages": [{{"role": "user", "content": prompt}}],
+    "max_tokens": 500
+}}
+
+# 这里我们通过 OpenClaw 内部调用
+# 由于直接调用比较复杂，我们用简单的 HTTP 请求
+print("SKIP")
+'''],
+            capture_output=True,
+            text=True,
+            cwd=str(WORK_DIR),
+            timeout=10
+        )
+        
+        # 改用更简单的方式 - 直接提示用户手动生成或使用子代理
+        print("   💡 请运行以下命令生成 AI 洞察：")
+        print("   python3 gen_insight.py")
+        print("   （或者手动编辑 news.md 中的今日洞察）")
+        return False
+        
+    except Exception as e:
+        print(f"   ⚠️ AI 洞察生成失败: {e}")
+        return False
+
+
+def generate_insight_subagent():
+    """通过子代理生成洞察（推荐方式）"""
+    print("\n🤔 调用 AI 生成今日洞察...")
+    
+    content = md_read_news_md()
+    hot_items = extract_hot_items(content)
+    
+    if not hot_items:
+        print("   ⚠️ 未找到今日热点")
+        return False
+    
+    hot_text = '\n'.join([f"{i+1}. {item}" for i, item in enumerate(hot_items[:6])])
+    
+    prompt = f"""你是一个科技行业分析师。请根据以下今日热点新闻，生成一段 150-200 字的今日洞察。
+
+要求：
+1. 总结 3-4 个核心趋势
+2. 观点客观、有见解
+3. 语言简洁有力
+4. 只输出洞察内容，不要标题
+5. 段落之间要空一行（用两个换行符分隔）
+
+今日热点：
+{hot_text}
+
+请直接输出洞察内容："""
+
+    # 保存 prompt 到临时文件
+    prompt_file = WORK_DIR / ".insight_prompt.txt"
+    with open(prompt_file, 'w', encoding='utf-8') as f:
+        f.write(prompt)
+    
+    print("   📝 已保存提示词，请通过 OpenClaw 会话调用 AI 生成")
+    print(f"   💡 提示词已保存到: {prompt_file}")
+    return True
+
+
+def generate_github_html(content, date):
+    """生成 GitHub Pages HTML"""
+    template = read_template(TEMPLATE_GITHUB)
+    title = f"AI行业资讯 | {date}"
+    
+    hot_items = extract_hot_items(content)
+    hot_html = ""
+    for item in hot_items:
+        item = item.replace('**', '')
+        hot_html += f"                <li>{item}</li>\n"
+    
+    sections_html = ""
+    for sec_name in ['国内AI资讯', '国外AI资讯', '智能硬件资讯', '其它科技资讯']:
+        sec_content = extract_section(content, sec_name)
+        if not sec_content:
+            continue
+            
+        items_html = ""
+        for line in sec_content.split('\n'):
+            line = line.strip()
+            if line.startswith('- **'):
+                title_match = re.search(r'\*\*(.+?)\*\*', line)
+                title = title_match.group(1).replace('**', '') if title_match else ""
+                desc_match = re.search(r'\*\*.*?\*\*\s*—\s*(.+?)(?:来源：|$)', line)
+                desc = desc_match.group(1).strip() if desc_match else ""
+                link_match = re.search(r'\[链接\]\((.+?)\)', line)
+                link = link_match.group(1) if link_match else ""
+                source_match = re.search(r'来源：([^|\[]+)', line)
+                source = source_match.group(1).strip() if source_match else ""
+                
+                items_html += f'''
+        <div class="item">
+            <h3>{title}</h3>
+            <p class="desc">{desc}</p>
+            <p class="meta">来源：{source}'''
+                if link:
+                    items_html += f''' | <a href="{link}" target="_blank">原文链接</a>'''
+                items_html += '''</p>
+        </div>
+'''
+        
+        if items_html:
+            sections_html += f'''
+        <div class="section">
+            <h2>{sec_name}</h2>
+{items_html}
+        </div>
+'''
+    
+    # 今日洞察 - 处理段落空行
+    insight = md_extract_section(content, '今日洞察')
+    insight_html = ""
+    if insight:
+        # 将段落间的空行转换为 HTML <br><br>
+        insight_formatted = insight.replace('\n\n', '<br><br>').replace('\n', '<br>')
+        insight_html = f'''
+        <div class="insight">
+            <h2>💡 今日洞察</h2>
+            <p>{insight_formatted}</p>
+        </div>
+'''
+    
+    html = template.replace('{{title}}', title)
+    html = html.replace('{{hot_items}}', hot_html)
+    html = html.replace('{{sections}}', sections_html)
+    html = html.replace('{{insight}}', insight_html)
+    
+    return html
+
+
+def generate_wechat_html(content, date):
+    """生成公众号 HTML"""
+    template = read_template(TEMPLATE_WECHAT)
+    
+    hot_items = extract_hot_items(content)
+    hot_html = ""
+    for item in hot_items:
+        hot_html += f'        <li style="margin:0;font-size:16px;line-height:1.0;"><em>• {item}</em></li>\n'
+    
+    sections_html = ""
+    for sec_name, emoji in [('国内AI资讯', '🏷️'), ('国外AI资讯', '🌍'), 
+                            ('智能硬件资讯', '📱'), ('其它科技资讯', '💻')]:
+        sec_content = extract_section(content, sec_name)
+        if not sec_content:
+            continue
+            
+        items_html = ""
+        for line in sec_content.split('\n'):
+            line = line.strip()
+            if line.startswith('- **'):
+                title_match = re.search(r'\*\*(.+?)\*\*', line)
+                title = title_match.group(1).replace('**', '') if title_match else ""
+                desc_match = re.search(r'\*\*.*?\*\*\s*—\s*(.+?)(?:来源：|$)', line)
+                desc = desc_match.group(1).strip() if desc_match else ""
+                source_match = re.search(r'来源：([^|\[]+)', line)
+                source = source_match.group(1).strip() if source_match else ""
+                
+                items_html += f'''
+    <h3 style="color:#1890ff;font-weight:bold;font-size:17px;">{title}</h3>
+    <p style="color:#666;font-size:15px;">{desc}</p>
+'''
+                if source:
+                    items_html += f'    <p style="color:#1890ff;font-size:13px;">来源：{source}</p>\n'
+        
+        if items_html:
+            sections_html += f'''
+    <h2 style="color:#000000;font-weight:bold;font-size:19px;margin-top:25px;">{emoji} {sec_name}</h2>
+{items_html}
+'''
+    
+    # 今日洞察 - 处理段落空行
+    insight = md_extract_section(content, '今日洞察')
+    insight_html = ""
+    if insight:
+        # 将段落间的空行转换为 HTML 段落
+        paragraphs = insight.split('\n\n')
+        paragraphs_html = ''
+        for p in paragraphs:
+            p = p.strip()
+            if p:
+                paragraphs_html += f'<p style="margin:0;">{p}</p>'
+        
+        insight_html = f'''
+    <h2 style="color:#000000;font-weight:bold;font-size:19px;margin-top:25px;">💡 今日洞察</h2>
+    <div style="background:#f6ffed;padding:15px;border-radius:8px;line-height:1.8;font-size:15px;">
+{paragraphs_html}
+    </div>
+'''
+    
+    html = template.replace('{{hot_items}}', hot_html)
+    html = html.replace('{{sections}}', sections_html)
+    html = html.replace('{{insight}}', insight_html)
+    
+    return html
+
+
+def upload_cover():
+    """上传封面图到微信素材库"""
+    if not COVER_FILE.exists():
+        print("❌ 封面图不存在")
+        return None
+    
+    if COVER_MEDIA_ID_FILE.exists():
+        with open(COVER_MEDIA_ID_FILE, 'r') as f:
+            saved_id = f.read().strip()
+        if saved_id:
+            return saved_id
+    
+    resp = requests.get(
+        f"https://api.weixin.qq.com/cgi-bin/token?grant_type=client_credential&appid={APP_ID}&secret={APP_SECRET}"
+    ).json()
+    access_token = resp.get("access_token")
+    
+    with open(COVER_FILE, 'rb') as f:
+        files = {'media': ('cover.jpg', f, 'image/jpeg')}
+        url = f"https://api.weixin.qq.com/cgi-bin/material/add_material?access_token={access_token}&type=image"
+        r = requests.post(url, files=files).json()
+    
+    if "media_id" in r:
+        media_id = r["media_id"]
+        with open(COVER_MEDIA_ID_FILE, 'w') as f:
+            f.write(media_id)
+        print(f"✅ 封面上传成功: {media_id[:30]}...")
+        return media_id
+    else:
+        print(f"❌ 封面上传失败: {r}")
+        return None
+
+
+def post_to_wechat(html, date):
+    """上传到公众号草稿箱"""
+    resp = requests.get(
+        f"https://api.weixin.qq.com/cgi-bin/token?grant_type=client_credential&appid={APP_ID}&secret={APP_SECRET}"
+    ).json()
+    access_token = resp.get("access_token")
+    
+    thumb_media_id = upload_cover()
+    article_title = f"AI资讯早报（{date}）"
+    
+    draft = {
+        "articles": [{
+            "title": article_title,
+            "author": "卧龙",
+            "content": html,
+            "thumb_media_id": thumb_media_id,
+            "digest": "每日AI行业资讯速览"
+        }]
+    }
+    
+    url = f"https://api.weixin.qq.com/cgi-bin/draft/add?access_token={access_token}"
+    post_data = json.dumps(draft, ensure_ascii=False).encode('utf-8')
+    resp = requests.post(url, data=post_data, headers={'Content-Type': 'application/json; charset=utf-8'}).json()
+    
+    if "media_id" in resp:
+        print(f"✅ 成功上传到公众号草稿箱!")
+        print(f"📝 草稿ID: {resp['media_id'][:30]}...")
+        return True
+    else:
+        print(f"❌ 上传失败: {resp}")
+        return False
+
+
+def main():
+    print("🤖 AI 资讯早报 - 一键发布")
+    print("=" * 50)
+    
+    # 1. 检查是否有今日洞察
+    print("\n📋 第1步：检查新闻内容...")
+    content = md_read_news_md()
+    date = extract_date(content)
+    print(f"   日期: {date}")
+    
+    insight = md_extract_section(content, '今日洞察')
+    if not insight or len(insight) < 50:
+        print("   ⚠️ 今日洞察为空或太短")
+        print("   💡 请先运行 python3 gen_insight.py 生成 AI 洞察")
+        print("   或手动编辑 news.md 添加洞察")
+        # 继续执行，不阻断
+    
+    # 2. 生成 HTML
+    print("\n🌐 第2步：生成 GitHub Pages HTML...")
+    github_html = generate_github_html(content, date)
+    with open(OUTPUT_HTML, 'w', encoding='utf-8') as f:
+        f.write(github_html)
+    print(f"   ✅ 已保存到: {OUTPUT_HTML}")
+    
+    # 3. 生成公众号 HTML
+    print("\n📱 第3步：生成公众号 HTML...")
+    wechat_html = md_generate_wechat_html(content, date)
+    with open(OUTPUT_WECHAT_HTML, 'w', encoding='utf-8') as f:
+        f.write(wechat_html)
+    print(f"   ✅ 已保存到: {OUTPUT_WECHAT_HTML}")
+    
+    # 4. 推送到公众号
+    print("\n📤 第4步：推送到公众号...")
+    post_to_wechat(wechat_html, date)
+    
+    print("\n" + "=" * 50)
+    print("✅ 全部完成!")
+    print("\n📌 使用说明：")
+    print("   1. python3 run.py          # 一键生成+推送")
+    print("   2. python3 gen_insight.py # 单独生成 AI 洞察")
+
+
+if __name__ == "__main__":
+    main()
