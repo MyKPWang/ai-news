@@ -386,21 +386,33 @@ def main():
         print("   或手动编辑 news.md 添加洞察")
         # 继续执行，不阻断
     
-    # 2. 生成 HTML
-    print("\n🌐 第2步：生成 GitHub Pages HTML...")
+    # 2. 校验分类
+    print("\n🔍 第2步：校验新闻分类...")
+    import subprocess
+    result = subprocess.run(
+        ['python3', str(WORK_DIR / 'validate_news.py')],
+        capture_output=True, text=True, cwd=str(WORK_DIR)
+    )
+    if result.returncode != 0:
+        print("   ⚠️ 发现分类问题，请检查输出 above")
+    else:
+        print("   ✅ 分类检查通过")
+    
+    # 3. 生成 HTML
+    print("\n🌐 第3步：生成 GitHub Pages HTML...")
     github_html = generate_github_html(content, date)
     with open(OUTPUT_HTML, 'w', encoding='utf-8') as f:
         f.write(github_html)
     print(f"   ✅ 已保存到: {OUTPUT_HTML}")
     
-    # 3. 生成公众号 HTML
+    # 4. 生成公众号 HTML
     print("\n📱 第3步：生成公众号 HTML...")
     wechat_html = md_generate_wechat_html(content, date)
     with open(OUTPUT_WECHAT_HTML, 'w', encoding='utf-8') as f:
         f.write(wechat_html)
     print(f"   ✅ 已保存到: {OUTPUT_WECHAT_HTML}")
     
-    # 4. 推送到公众号
+    # 5. 推送到公众号
     print("\n📤 第4步：推送到公众号...")
     post_to_wechat(wechat_html, date)
     
