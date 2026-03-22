@@ -50,7 +50,7 @@ def extract_section(content, section_name):
     return match.group(1).strip() if match else ""
 
 def extract_hot_items(content):
-    """提取今日热点"""
+    """提取今日热点（只取标题，不要描述）"""
     pattern = r'## 今日热点.*?\n(.*?)(?=##\s|$)'
     match = re.search(pattern, content, re.DOTALL)
     if not match:
@@ -60,11 +60,15 @@ def extract_hot_items(content):
     for line in match.group(1).split('\n'):
         line = line.strip()
         if line and (line[0].isdigit() or line.startswith('-')):
-            # 去掉 ** 序号 括号类别
+            # 去掉 ** 和序号
             title = line.replace('**', '')
             title = re.sub(r'^\d+\.\s*', '', title)
-            title = re.sub(r'（来自.*?）', '', title)
-            items.append(title.strip())
+            # 只取到" — "之前的内容作为标题（不要描述）
+            if '—' in title:
+                title = title[:title.index('—')]
+            title = title.strip()
+            if title:
+                items.append(title)
     return items
 
 
