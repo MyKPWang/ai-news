@@ -106,27 +106,34 @@ def generate_github_html(content, date):
         if not sec_content:
             continue
             
+        # 用正则匹配整个条目（从1. 或 - 开头，到下一个条目之前）
+        items = re.split(r'\n(?=\d+\. )', sec_content)
         items_html = ""
-        for line in sec_content.split('\n'):
-            line = line.strip()
-            if line.startswith('- **'):
-                title_match = re.search(r'\*\*(.+?)\*\*', line)
-                title = title_match.group(1).replace('**', '') if title_match else ""
-                desc_match = re.search(r'\*\*.*?\*\*\s*—\s*(.+?)(?:来源：|$)', line)
-                desc = desc_match.group(1).strip() if desc_match else ""
-                link_match = re.search(r'\[链接\]\((.+?)\)', line)
-                link = link_match.group(1) if link_match else ""
-                source_match = re.search(r'来源：([^|\[]+)', line)
-                source = source_match.group(1).strip() if source_match else ""
-                
+        for item in items:
+            item = item.strip()
+            if not item:
+                continue
+            # 去掉开头的序号
+            item = re.sub(r'^\d+\.\s*', '', item)
+            
+            # 提取标题（第一行加粗部分）
+            title_match = re.search(r'\*\*(.+?)\*\*', item)
+            title = title_match.group(1) if title_match else ""
+            
+            # 提取描述（从标题后到"来源："之前）
+            desc_match = re.search(r'\*\*.*?\*\*\s*[—\-]\s*(.+?)(?=\n来源：|$)', item, re.DOTALL)
+            desc = desc_match.group(1).strip() if desc_match else ""
+            
+            # 提取来源
+            source_match = re.search(r'来源：([^\n]+)', item)
+            source = source_match.group(1).strip() if source_match else ""
+            
+            if title:
                 items_html += f'''
         <div class="item">
             <h3>{title}</h3>
             <p class="desc">{desc}</p>
-            <p class="meta">来源：{source}'''
-                if link:
-                    items_html += f''' | <a href="{link}" target="_blank">原文链接</a>'''
-                items_html += '''</p>
+            <p class="meta">来源：{source}</p>
         </div>
 '''
         
@@ -176,28 +183,26 @@ def generate_wechat_html(content, date):
             continue
             
         items_html = ""
-        # 把整个板块内容按资讯条目分割（每个条目以 **数字. 开头）
-        items = [item for item in re.split(r'\n(?=\*\*)', sec_content) if item.strip()]
+        # 按数字序号分割：每个条目以 "1. " 开头
+        items = re.split(r'\n(?=\d+\. )', sec_content)
         
         for item in items:
-            if not item.strip():
+            item = item.strip()
+            if not item:
                 continue
+            # 去掉开头的序号
+            item = re.sub(r'^\d+\.\s*', '', item)
                 
             # 标题匹配
             title_match = re.search(r'\*\*(.+?)\*\*', item)
             title = title_match.group(1) if title_match else ""
             
-            # 描述匹配：从标题后到来源前
-            desc_match = re.search(r'\*\*.*?\*\*\n(.*?)\n来源：', item, re.DOTALL)
+            # 描述匹配：从标题后到"来源："之前
+            desc_match = re.search(r'\*\*.*?\*\*\s*[—\-]\s*(.+?)(?=\n来源：|$)', item, re.DOTALL)
             desc = desc_match.group(1).strip() if desc_match else ""
             
-            # 如果没匹配到描述，尝试其他格式
-            if not desc:
-                desc_match = re.search(r'\*\*.*?\*\*\s*—\s*(.+?)(?:来源：|$)', item)
-                desc = desc_match.group(1).strip() if desc_match else ""
-            
             # 来源匹配
-            source_match = re.search(r'来源：([^|\[]+)', item)
+            source_match = re.search(r'来源：([^\n]+)', item)
             source = source_match.group(1).strip() if source_match else ""
             
             if title:
