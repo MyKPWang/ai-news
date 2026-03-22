@@ -67,6 +67,21 @@ def extract_hot_items(content):
             items.append(title.strip())
     return items
 
+
+def extract_all_sources(content):
+    """提取所有来源并去重"""
+    sources = set()
+    # 匹配 "来源：xxx" 格式，支持空格（用于 "The Verge" 这种）
+    for match in re.finditer(r'来源：([a-zA-Z0-9\u4e00-\u9fa5][a-zA-Z0-9\u4e00-\u9fa5\s]*)', content):
+        source = match.group(1).strip()
+        # 清理末尾的标点
+        source = re.sub(r'[，。,.\s]+$', '', source)
+        # 过滤掉一些无关的词和太短的
+        if source and len(source) >= 2 and source not in ['链接', '原文', '来源']:
+            sources.add(source)
+    # 排序返回
+    return '、'.join(sorted(sources))
+
 def generate_github_html(content, date):
     """生成 GitHub Pages HTML"""
     template = read_template(TEMPLATE_GITHUB)
@@ -206,10 +221,14 @@ def generate_wechat_html(content, date):
     </div>
 '''
     
+    # 提取来源
+    sources = extract_all_sources(content)
+    
     # 替换模板占位符
     html = template.replace('{{hot_items}}', hot_html)
     html = html.replace('{{sections}}', sections_html)
     html = html.replace('{{insight}}', insight_html)
+    html = html.replace('{{sources}}', sources)
     
     return html
 
